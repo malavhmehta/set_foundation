@@ -1,0 +1,26 @@
+/* main.scss: all styles
+  ==================== */
+
+// reset
+@import "base/normalize";
+@import "base/reset";
+
+// vendor imports
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/rfs/scss";
+
+// base
+@import "base/fonts";
+@import "base/variables";
+
+// scaffolding
+@import "components/scaffolding";
+@import "components/slide";
+
+// components
+@import "components/Loader";
+@import "components/Nav";
+@import "components/Landing";
+@import "components/Banner";
+@import "components/Set";
+

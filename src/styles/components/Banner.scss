@@ -1,0 +1,25 @@
+/* Banner.scss: set banner styling
+ =============== */
+
+div.banner-wrapper {
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% auto;
+}
+
+.banner-text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+
+  .banner-text {
+    color: rgba($accent-color, 0.55);
+    font-family: $font-sans;
+    @include font-size(200px);
+    font-weight: 800;
+    @include padding-top(7.5rem);
+    @include padding-bottom(7.5rem);
+  }
+}

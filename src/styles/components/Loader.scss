@@ -1,0 +1,47 @@
+/* loader.scss: page loader
+ =============== */
+
+div.loader {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  @include padding(3rem);
+
+  h1 {
+    -webkit-text-stroke: 0.1rem $text-color;
+    color: transparent;
+    font-family: $font-sans;
+    @include font-size(100px);
+    font-weight: 800;
+    transition: $transition;
+    animation: load-animation 1.5s infinite linear;
+
+    span {
+      color: $accent-color;
+      -webkit-text-stroke-color: $accent-color;
+      animation: load-animation-span 1.5s infinite linear;
+    }
+  }
+}
+
+@keyframes load-animation {
+  0% {
+    color: transparent;
+  }
+
+  50% {
+    color: $text-color;
+  }
+}
+
+@keyframes load-animation-span {
+  0% {
+    color: transparent;
+  }
+
+  50% {
+    color: $accent-color;
+  }
+}
