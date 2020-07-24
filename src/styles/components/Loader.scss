@@ -10,7 +10,7 @@ div.loader {
   @include padding(3rem);
 
   h1 {
-    -webkit-text-stroke: 0.1rem $text-color;
+    -webkit-text-stroke: 0.1rem $accent-color;
     color: transparent;
     font-family: $font-sans;
     @include font-size(100px);
@@ -32,7 +32,7 @@ div.loader {
   }
 
   50% {
-    color: $text-color;
+    color: $secondary-color;
   }
 }
 
