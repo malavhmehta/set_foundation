@@ -1,26 +1,30 @@
-/* main.scss: all styles
-  ==================== */
+/*  main.scss
+
+    purpose: to contain all the necessary imports that will be exported
+    to the main react component
+
+    custom:
+      - _normalize.scss & _reset.scss => CSS resets
+      - _fonts.scss => font imports
+      - _variables.scss => theme config
+      - _global.scss => globally scoped styles
+
+    vendor:
+      - bootstrap => bootstrap media breakpoints
+      - rfs => responsive font sizing
+ */
 
 // reset
-@import "base/normalize";
-@import "base/reset";
+@import "./normalize";
+@import "reset";
 
-// vendor imports
-@import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/rfs/scss";
+// vendor
+@import "~bootstrap/scss/bootstrap";
+@import "~rfs/scss";
 
 // base
-@import "base/fonts";
-@import "base/variables";
+@import "./fonts";
+@import "./variables";
 
 // scaffolding
-@import "components/scaffolding";
-@import "components/slide";
-
-// components
-@import "components/Loader";
-@import "components/Nav";
-@import "components/Landing";
-@import "components/Banner";
-@import "components/Set";
-
+@import "./global";

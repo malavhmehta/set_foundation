@@ -1,0 +1,12 @@
+/*  _imports.scss
+
+    contains the files that will be imported by each component
+    scoped module
+ */
+
+// variables
+@import "./variables";
+
+// vendor
+@import "~bootstrap/scss/mixins";
+@import "~rfs/scss";
