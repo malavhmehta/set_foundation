@@ -21,6 +21,7 @@ const StyledNav = styled.nav.attrs(({
 
 const MobileNav = styled.nav`
   background-color: ${colors.bg};
+  border: 1px solid ${hex2rgba(colors.bg_alt, 0.075)};
   border-radius: ${theme.borderRadius};
   box-shadow: 0 .5rem 2rem ${hex2rgba(colors.bg_alt, 0.05)};
   display: flex;
@@ -145,7 +146,7 @@ const MobileNavAction = styled(NavAction)`
 const Dropdown = styled.div`
   align-items: flex-start;
   background-color: ${colors.bg};
-  border: 1px solid ${hex2rgba(colors.bg_alt, 0.1)};
+  border: 1px solid ${hex2rgba(colors.bg_alt, 0.075)};
   border-radius: ${theme.borderRadius};
   box-shadow: 0 .5rem 2rem ${hex2rgba(colors.bg_alt, 0.05)};
   display: flex;

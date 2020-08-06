@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {HashLink} from "react-router-hash-link";
 
 import errorImage from "../assets/images/404.png";
-import {theme, media} from "../styles";
+import {theme, media, hex2rgba} from "../styles";
 const {colors, fontSizes} = theme;
 
 const Container = styled.div.attrs(({
@@ -12,22 +12,25 @@ const Container = styled.div.attrs(({
   align-items: center;
   display: flex;
   justify-content: flex-start;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const Header = styled.h1`
   color: ${colors.text};
-  font-size: ${fontSizes.h1};
-  ${media.md`font-size: 55px`};
+  font-size: 50px;
+  padding-top: 3rem;
+  ${media.md`
+    font-size: ${fontSizes.h1}
+    padding-top: 0;
+  `};
   font-weight: bold;
 `
 
 const Description = styled.p`
-  color: ${colors.text};
-  font-size: ${fontSizes.lg};
-  ${media.md`font-size: ${fontSizes.md}`};
+  color: ${hex2rgba(colors.text, .6)};
+  font-size: ${fontSizes.md};
+  ${media.md`font-size: ${fontSizes.lg}`};
   font-weight: 500;
-  opacity: .6;
   padding: 1.5rem 0 2rem;
   
   code {
@@ -41,7 +44,7 @@ const BackButton = styled(HashLink)`
   border-radius: ${theme.borderRadius};
   color: ${colors.text_alt} !important;
   font-size: ${fontSizes.sm};
-  font-weight: 600;
+  font-weight: 700;
   padding: .8rem 1.4rem;
   transition: ${theme.transition};
   
@@ -54,6 +57,10 @@ const BackButton = styled(HashLink)`
 export const ErrorPage = props => (
     <Container>
       <div className="row">
+        <div className="col-12 d-md-none">
+          <img src={errorImage} alt="404 error." className="img-fluid"/>
+        </div>
+
         <div className="col-12 col-md-6">
           <Header>
             Error 404.
@@ -68,7 +75,7 @@ export const ErrorPage = props => (
           </BackButton>
         </div>
 
-        <div className="col-12 col-md-6">
+        <div className="d-none d-md-flex col-md-6">
           <img src={errorImage} alt="404 error." className="img-fluid"/>
         </div>
       </div>

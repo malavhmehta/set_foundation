@@ -1,7 +1,7 @@
 import {createGlobalStyle} from "styled-components";
 
-import {theme} from "./theme";
 import {fontFaces} from "./fonts";
+import {theme, hex2rgba} from "./theme";
 const {colors, fonts, fontSizes} = theme;
 
 export const GlobalStyle = createGlobalStyle`
@@ -9,8 +9,9 @@ export const GlobalStyle = createGlobalStyle`
   
   html {
     box-sizing: border-box;
-    width: 100%;
+    min-height: 100vh;
     scroll-behavior: smooth;
+    width: 100%;
   }
   
   *,
@@ -28,8 +29,16 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     line-height: 1.6;
     margin: 0;
-    min-height: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
     width: 100%;
+  }
+  
+  ::selection {
+    background-color: ${hex2rgba(colors.accent, .1)};
+  }
+  
+  #root {
+    min-height: 100vh;
   }
 `;
