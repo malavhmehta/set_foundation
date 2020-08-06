@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     line-height: 1.6;
     margin: 0;
-    min-height: 100vw;
+    min-height: 100%;
     overflow-x: hidden;
     width: 100%;
   }

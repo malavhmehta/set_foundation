@@ -1,11 +1,13 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
+import {BrowserRouter as Router, Route, useLocation} from "react-router-dom";
+import Switch from "react-router-transition-switch";
+import Fader from "react-fader";
 
-import AnimateSwitch from "./animation";
-import {GlobalStyle} from "../styles";
+import {GlobalStyle, media} from "../styles";
 import {global} from "../data";
 
 import {Nav} from "../components/common/Nav";
+import {ErrorPage} from "./404";
 
 function CurrentRoute({listen, children}) {
   let route = useLocation();
@@ -52,14 +54,34 @@ class App extends Component {
                 )}
               </CurrentRoute>
 
-              <Switch>
-                <AnimateSwitch>
-                  <Route path="/" exact/>
-                  <Route path="/conference" exact/>
-                  <Route path="/hacks" exact/>
-                  <Route path="/up" exact/>
-                  <Route path="/contact" exact/>
-                </AnimateSwitch>
+              <Switch component={Fader}>
+                <Route path="/" exact>
+                  Home
+                </Route>
+
+                <Route path="/conference" exact>
+                  Conference
+                </Route>
+
+                <Route path="/hackathon" exact>
+                  Hackathon
+                </Route>
+
+                <Route path="/up" exact>
+                  SET Up
+                </Route>
+
+                <Route path="/contact" exact>
+                  Contact
+                </Route>
+
+                <Route path="*" exact>
+                  <CurrentRoute>
+                    {route => (
+                        <ErrorPage current={route}/>
+                    )}
+                  </CurrentRoute>
+                </Route>
               </Switch>
             </Router>
           </React.Fragment>
