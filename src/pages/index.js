@@ -1,13 +1,23 @@
 import React, {Component} from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, useLocation} from "react-router-dom";
 
 import AnimateSwitch from "./animation";
+import {global} from "../data";
+
+import {Nav} from "../components/common/Nav";
+
+import {Error} from "./404";
+
+function CurrentRoute({listen, children}) {
+  let route = useLocation();
+  return children(route);
+}
 
 export default class App extends Component {
   state = {
     animationDone: false,
     dataFetchDone: false,
-    animationLength: 750
+    animationLength: 0
   };
 
   finishAnimation = () => {
@@ -28,12 +38,20 @@ export default class App extends Component {
   }
 
   render() {
-    const {animationDone} = this.state;
-    const {dataFetchDone} = this.state;
+    const {
+      animationDone,
+      dataFetchDone,
+    } = this.state;
 
     if (animationDone && dataFetchDone) {
       return (
           <Router>
+            <CurrentRoute>
+              {route => (
+                  <Nav navbar={global.nav} current={route}/>
+              )}
+            </CurrentRoute>
+
             <Switch>
               <AnimateSwitch>
                 <Route path="/" exact/>
@@ -41,6 +59,9 @@ export default class App extends Component {
                 <Route path="/hacks" exact/>
                 <Route path="/up" exact/>
                 <Route path="/contact" exact/>
+                <Route path="*">
+                  <Error code={404}/>
+                </Route>
               </AnimateSwitch>
             </Switch>
           </Router>
