@@ -73,5 +73,9 @@ export const global = {
         caption: "Contact"
       }
     ]
+  },
+  name: {
+    abbr: "SET",
+    expanded: "Students in Engineering and Technology"
   }
 };

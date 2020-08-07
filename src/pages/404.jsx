@@ -44,7 +44,7 @@ const BackButton = styled(HashLink)`
   border-radius: ${theme.borderRadius};
   color: ${colors.text_alt} !important;
   font-size: ${fontSizes.sm};
-  font-weight: 700;
+  font-weight: 600;
   padding: .8rem 1.4rem;
   transition: ${theme.transition};
   

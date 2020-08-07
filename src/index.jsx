@@ -9,8 +9,8 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import App from "./pages";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode >
+        <App/>
+    </React.StrictMode>,
+    document.getElementById('root')
 );

@@ -8,29 +8,30 @@ import {GlobalStyle, theme, media} from "../styles";
 import {global} from "../data";
 
 import {Nav} from "../components/common/Nav";
+import {Footer} from "../components/common/Footer"
+
 import {ErrorPage} from "./404";
 
 const {colors, fontSizes} = theme;
 
-const SlideIn = keyframes`
+const ZoomIn = keyframes`
   from {
-    transform: translateY(100%);
+    opacity: 0;
   }
   
   to {
-    transform: translateY(0);
+    opacity: 1;
   }
 `
 
 const Loader = styled.div`
-  animation: .75s ${SlideIn} ease-out forwards;
+  animation: .5s ${ZoomIn} ease-out forwards;
   align-items: center;
   background-color: ${colors.bg};
   display: flex;
   font-size: ${fontSizes.h1};
   height: 100vh;
   justify-content: center;
-  transform: translateY(-100%);
   width: 100vw;
   
   h1 {
@@ -52,7 +53,7 @@ class App extends Component {
   state = {
     animationDone: false,
     dataFetchDone: false,
-    animationLength: 750
+    animationLength: 0
   };
 
   finishAnimation = () => {
@@ -117,6 +118,8 @@ class App extends Component {
                   </CurrentRoute>
                 </Route>
               </Switch>
+
+              <Footer/>
             </Router>
           </React.Fragment>
       );
