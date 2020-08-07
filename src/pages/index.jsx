@@ -9,7 +9,6 @@ import {global} from "../data";
 
 import {Nav} from "../components/common/Nav";
 import {Footer} from "../components/common/Footer"
-
 import {ErrorPage} from "./404";
 
 const {colors, fontSizes} = theme;
