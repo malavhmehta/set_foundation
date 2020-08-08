@@ -1,5 +1,5 @@
-import {theme} from "./theme";
-const {colors, fontSizes} = theme;
+import { theme } from "./theme";
+const { colors, fontSizes } = theme;
 
 export const Button = `
   background-color: ${colors.accent};

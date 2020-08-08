@@ -2,8 +2,8 @@ export const global = {
   nav: {
     brand: "SET.Foundation",
     action: {
-      href: "",
-      caption: "Register now"
+      href: "/register",
+      caption: "Register now",
     },
     links: [
       {
@@ -12,17 +12,17 @@ export const global = {
         anchors: [
           {
             href: "#initiatives",
-            caption: "Initiatives"
+            caption: "Initiatives",
           },
           {
             href: "#about",
-            caption: "About Us"
+            caption: "About Us",
           },
           {
             href: "#team",
-            caption: "Our Team"
-          }
-        ]
+            caption: "Our Team",
+          },
+        ],
       },
       {
         href: "/conference",
@@ -30,21 +30,21 @@ export const global = {
         anchors: [
           {
             href: "#about",
-            caption: "About SET"
+            caption: "About SET",
           },
           {
             href: "#why",
-            caption: "Why Attend"
+            caption: "Why Attend",
           },
           {
             href: "#schedule",
-            caption: "Schedule"
+            caption: "Schedule",
           },
           {
             href: "#past",
-            caption: "Past Conferences"
-          }
-        ]
+            caption: "Past Conferences",
+          },
+        ],
       },
       {
         href: "/hackathon",
@@ -52,30 +52,36 @@ export const global = {
         anchors: [
           {
             href: "#about",
-            caption: "About SET.Hacks"
+            caption: "About SET.Hacks",
           },
           {
             href: "#challenges",
-            caption: "Challenges"
+            caption: "Challenges",
           },
           {
             href: "#sponsors",
-            caption: "Sponsors"
+            caption: "Sponsors",
           },
           {
             href: "#faq",
-            caption: "FAQ"
+            caption: "FAQ",
           },
-        ]
+        ],
       },
       {
         href: "/contact",
-        caption: "Contact"
-      }
-    ]
+        caption: "Contact",
+      },
+    ],
   },
   name: {
     abbr: "SET",
-    expanded: "Students in Engineering and Technology"
-  }
+    expanded: "Students in Engineering and Technology",
+  },
+  social_media: {
+    instagram: "https://www.instagram.com/setfoundation/",
+    linkedin:
+      "https://www.linkedin.com/company/students-in-engineering-and-technology",
+    email: "mailto:contact@setfoundation.ca",
+  },
 };
