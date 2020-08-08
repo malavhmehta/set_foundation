@@ -355,7 +355,10 @@ export class Footer extends Component {
                           <NavLink to={link.href}>{link.caption}</NavLink>
                           {link.anchors &&
                             link.anchors.map((anchor) => (
-                              <DropdownLink to={link.href + anchor.href}>
+                              <DropdownLink
+                                to={link.href + anchor.href}
+                                key={link.href + anchor.href}
+                              >
                                 {anchor.caption}
                               </DropdownLink>
                             ))}

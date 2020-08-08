@@ -83,7 +83,14 @@ class App extends Component {
         <React.Fragment>
           <GlobalStyle />
 
-          <Router>
+          <Router
+            onUpdate={() => {
+              document.body.scrollIntoView({
+                behaviour: "smooth",
+                block: "start",
+              });
+            }}
+          >
             <CurrentRoute>
               {(route) => <Nav navbar={global.nav} current={route} />}
             </CurrentRoute>

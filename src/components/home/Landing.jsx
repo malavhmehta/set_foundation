@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import Fade from "react-reveal";
 import { ArrowRight } from "styled-icons/feather";
 
 import HeroImage from "../../assets/images/hero.jpg";
@@ -74,9 +75,23 @@ const Right = styled(ArrowRight)`
   transform: translateY(-0.5px);
 `;
 
+const FadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(35%);
+  }
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const ImageWrapper = styled.div`
+  animation: 1s ${FadeIn} ease forwards;
   height: auto;
   position: relative;
+  transition: ${theme.transition};
   width: 100%;
   ${media.sm`width: 90%`};
   ${media.md`width: 85%`};
@@ -112,12 +127,14 @@ export const Landing = (props) => (
       <div className="col-12">
         <LandingWrapper>
           <Detail>{props.data.expanded}</Detail>
-          <Header>{props.data.title}</Header>
-          <Lead>{props.data.lead}</Lead>
+          <Fade bottom>
+            <Header>{props.data.title}</Header>
+            <Lead>{props.data.lead}</Lead>
 
-          <Button href="/#initiatives">
-            Learn more <Right />
-          </Button>
+            <Button href="/#initiatives">
+              Learn more <Right />
+            </Button>
+          </Fade>
 
           <ImageWrapper>
             <img

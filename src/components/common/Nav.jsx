@@ -339,7 +339,7 @@ export class Nav extends Component {
 
     return (
       <StyledBackground show={show}>
-        <StyledNav show={show}>
+        <StyledNav>
           <NavBrand to={"/"} onClick={this.scrollTop}>
             {this.props.navbar.brand}
           </NavBrand>
