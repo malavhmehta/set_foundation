@@ -345,24 +345,26 @@ export class Footer extends Component {
                 </SideWrapper>
               </Fade>
             </div>
-            <div className="col-12 col-lg-8">
-              <div className="row">
-                {this.props.footer.links.map(
-                  (link) =>
-                    link.anchors && (
-                      <AnchorsWrapper key={link.href}>
-                        <NavLink to={link.href}>{link.caption}</NavLink>
-                        {link.anchors &&
-                          link.anchors.map((anchor) => (
-                            <DropdownLink to={link.href + anchor.href}>
-                              {anchor.caption}
-                            </DropdownLink>
-                          ))}
-                      </AnchorsWrapper>
-                    )
-                )}
+            <Fade bottom>
+              <div className="col-12 col-lg-8">
+                <div className="row">
+                  {this.props.footer.links.map(
+                    (link) =>
+                      link.anchors && (
+                        <AnchorsWrapper key={link.href}>
+                          <NavLink to={link.href}>{link.caption}</NavLink>
+                          {link.anchors &&
+                            link.anchors.map((anchor) => (
+                              <DropdownLink to={link.href + anchor.href}>
+                                {anchor.caption}
+                              </DropdownLink>
+                            ))}
+                        </AnchorsWrapper>
+                      )
+                  )}
+                </div>
               </div>
-            </div>
+            </Fade>
           </FooterContent>
         </Container>
       </FooterWrapper>
