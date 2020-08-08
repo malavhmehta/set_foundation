@@ -6,16 +6,24 @@ import { X } from "styled-icons/feather";
 import { theme, hex2rgba, media } from "../../styles";
 const { colors, fontSizes } = theme;
 
-const StyledNav = styled.nav.attrs({
-  className:
-    "container navbar navbar-expand-lg navbar-light bg-light fixed-top",
+const StyledBackground = styled.div.attrs({
+  className: "fixed-top",
 })`
   backdrop-filter: blur(5px);
   background-color: ${hex2rgba(colors.bg, 0.75)} !important;
   box-shadow: 0 0 1rem 0 ${hex2rgba(colors.bg, 0.2)};
+  transform: translateY(${(props) => (props.show ? "0%" : "-120%")});
+  transition: ${theme.transition};
+  width: 100%;
+  z-index: 10;
+`;
+
+const StyledNav = styled.nav.attrs({
+  className: "container navbar navbar-expand-lg navbar-light bg-light",
+})`
+  background-color: transparent !important;
   padding-bottom: 1.8rem;
   padding-top: 1.8rem;
-  transform: translateY(${(props) => (props.show ? "0%" : "-120%")});
   transition: ${theme.transition};
   z-index: 10;
 `;
@@ -228,7 +236,9 @@ const NavIconButton = styled.button.attrs({
 const NavIcon = styled.span.attrs({
   className: "navbar-toggler-icon",
 })`
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='${hex2rgba(colors.accent)}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='${hex2rgba(
+    colors.accent
+  )}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
   transition: ${theme.transition};
 `;
 
@@ -328,16 +338,70 @@ export class Nav extends Component {
     const { pathname } = this.props.current;
 
     return (
-      <StyledNav show={show}>
-        <NavBrand to={"/"} onClick={this.scrollTop}>
-          {this.props.navbar.brand}
-        </NavBrand>
+      <StyledBackground show={show}>
+        <StyledNav show={show}>
+          <NavBrand to={"/"} onClick={this.scrollTop}>
+            {this.props.navbar.brand}
+          </NavBrand>
 
-        <div className="collapse navbar-collapse" onClick={this.resetConfig}>
-          <ul className="navbar-nav ml-auto">
+          <div className="collapse navbar-collapse" onClick={this.resetConfig}>
+            <ul className="navbar-nav ml-auto">
+              {this.props.navbar.links.map((link) => (
+                <li className="nav-item" key={link.href}>
+                  <NavLink
+                    active={
+                      link.href === pathname || hover === link.href
+                        ? "active"
+                        : ""
+                    }
+                    to={link.href}
+                    onClick={this.scrollTop}
+                    onMouseEnter={() => this.setHover(link.href)}
+                    onMouseLeave={() => this.setHover("")}
+                  >
+                    {link.caption}
+                  </NavLink>
+
+                  {link.anchors && (
+                    <Dropdown
+                      show={hover === link.href}
+                      onMouseEnter={() => show && this.setHover(link.href)}
+                      onMouseLeave={() => this.setHover("")}
+                    >
+                      {link.anchors.map((anchor) => (
+                        <DropdownLink
+                          key={anchor.href}
+                          to={link.href + anchor.href}
+                          disabled={!show}
+                        >
+                          {anchor.caption}
+                        </DropdownLink>
+                      ))}
+                    </Dropdown>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="collapse navbar-collapse">
+            <NavAction href={this.props.navbar.action.href}>
+              {this.props.navbar.action.caption}
+            </NavAction>
+          </div>
+
+          <NavIconButton onClick={this.toggleNav}>
+            <NavIcon />
+          </NavIconButton>
+
+          <MobileNav active={toggled} onClick={this.toggleNav}>
+            <CloseButton>
+              <CloseIcon />
+            </CloseButton>
+
             {this.props.navbar.links.map((link) => (
-              <li className="nav-item" key={link.href}>
-                <NavLink
+              <div className="nav-item" key={link.href}>
+                <MobileNavLink
                   active={
                     link.href === pathname || hover === link.href
                       ? "active"
@@ -345,82 +409,32 @@ export class Nav extends Component {
                   }
                   to={link.href}
                   onClick={this.scrollTop}
-                  onMouseEnter={() => this.setHover(link.href)}
-                  onMouseLeave={() => this.setHover("")}
                 >
                   {link.caption}
-                </NavLink>
+                </MobileNavLink>
 
                 {link.anchors && (
-                  <Dropdown
-                    show={hover === link.href}
-                    onMouseEnter={() => show && this.setHover(link.href)}
-                    onMouseLeave={() => this.setHover("")}
-                  >
+                  <MobileDropdown show={hover === link.href}>
                     {link.anchors.map((anchor) => (
-                      <DropdownLink
+                      <MobileDropdownLink
                         key={anchor.href}
                         to={link.href + anchor.href}
                         disabled={!show}
                       >
                         {anchor.caption}
-                      </DropdownLink>
+                      </MobileDropdownLink>
                     ))}
-                  </Dropdown>
+                  </MobileDropdown>
                 )}
-              </li>
+              </div>
             ))}
-          </ul>
-        </div>
 
-        <div className="collapse navbar-collapse">
-          <NavAction href={this.props.navbar.action.href}>
-            {this.props.navbar.action.caption}
-          </NavAction>
-        </div>
-
-        <NavIconButton onClick={this.toggleNav}>
-          <NavIcon />
-        </NavIconButton>
-
-        <MobileNav active={toggled} onClick={this.toggleNav}>
-          <CloseButton>
-            <CloseIcon />
-          </CloseButton>
-
-          {this.props.navbar.links.map((link) => (
-            <div className="nav-item" key={link.href}>
-              <MobileNavLink
-                active={
-                  link.href === pathname || hover === link.href ? "active" : ""
-                }
-                to={link.href}
-                onClick={this.scrollTop}
-              >
-                {link.caption}
-              </MobileNavLink>
-
-              {link.anchors && (
-                <MobileDropdown show={hover === link.href}>
-                  {link.anchors.map((anchor) => (
-                    <MobileDropdownLink
-                      key={anchor.href}
-                      to={link.href + anchor.href}
-                      disabled={!show}
-                    >
-                      {anchor.caption}
-                    </MobileDropdownLink>
-                  ))}
-                </MobileDropdown>
-              )}
-            </div>
-          ))}
-
-          <MobileNavAction href={this.props.navbar.action.href}>
-            {this.props.navbar.action.caption}
-          </MobileNavAction>
-        </MobileNav>
-      </StyledNav>
+            <MobileNavAction href={this.props.navbar.action.href}>
+              {this.props.navbar.action.caption}
+            </MobileNavAction>
+          </MobileNav>
+        </StyledNav>
+      </StyledBackground>
     );
   }
 }

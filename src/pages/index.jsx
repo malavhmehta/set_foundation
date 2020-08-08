@@ -5,11 +5,13 @@ import Switch from "react-router-transition-switch";
 import Fader from "react-fader";
 
 import { GlobalStyle, theme, media } from "../styles";
-import { global } from "../data";
+import { global, foundation } from "../data";
 
 import { Nav } from "../components/common/Nav";
 import Footer from "../components/common/Footer";
+
 import { ErrorPage } from "./404";
+import { Home } from "./Home";
 
 const { colors, fontSizes } = theme;
 
@@ -88,7 +90,7 @@ class App extends Component {
 
             <Switch component={Fader}>
               <Route path="/" exact>
-                Home
+                <Home data={foundation} />
               </Route>
 
               <Route path="/conference" exact>

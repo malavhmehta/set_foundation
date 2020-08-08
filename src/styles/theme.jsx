@@ -20,7 +20,9 @@ export const hex2rgba = (hex, alpha = 1) => {
 
 const PRIMARY = "#ffffff";
 const SECONDARY = "#221c48";
+// const SECONDARY = "#172b4d";
 const ACCENT = "#5243aa";
+// const ACCENT = "#0052cc";
 const SOFT_ACCENT = hex2rgba("#eae6ff", 0.5);
 const DARK_ACCENT = "#403585";
 

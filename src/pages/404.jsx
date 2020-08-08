@@ -18,12 +18,12 @@ const Container = styled.div.attrs({
 const Header = styled.h1`
   color: ${colors.text};
   font-size: 50px;
-  padding-top: 3rem;
   ${media.md`
     font-size: ${fontSizes.h1}
     padding-top: 0;
   `};
-  font-weight: bold;
+  font-weight: 600;
+  padding-top: 3rem;
 `;
 
 const Description = styled.p`

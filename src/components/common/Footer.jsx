@@ -46,7 +46,7 @@ const EmailInput = styled.input.attrs({
   font-size: ${fontSizes.sm};
   font-weight: 600;
   margin-right: 2rem;
-  padding: 1.9rem 1.3rem;
+  padding: 1.6rem 1.3rem;
   transition: ${theme.transition};
 
   &:hover,
@@ -68,7 +68,7 @@ const SubmitButton = styled.button.attrs({
   color: ${colors.text_alt} !important;
   font-size: ${fontSizes.sm};
   font-weight: 600;
-  padding: 1.15rem 1.5rem;
+  padding: 0.9rem 1.5rem;
 
   &:hover,
   &:active {
