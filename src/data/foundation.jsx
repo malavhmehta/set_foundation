@@ -1,5 +1,4 @@
-import { Campaign } from "styled-icons/material-outlined";
-import { Code, HelpCircle } from "styled-icons/feather";
+import { Code, HelpCircle, Speaker } from "styled-icons/feather";
 
 export const foundation = {
   hero: {
@@ -15,7 +14,7 @@ export const foundation = {
       "The SET Foundation is an organization geared towards the enrichment and education of students aspiring to achieve within the STEM fields. We are carrying out this mission through our various initiatives:",
     list: [
       {
-        icon: Campaign,
+        icon: Speaker,
         title: "Conference",
         href: "/conference",
         description:
