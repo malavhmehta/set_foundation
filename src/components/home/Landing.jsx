@@ -100,7 +100,7 @@ const ImageWrapper = styled.div`
 
   &:before {
     background-color: ${colors.accent};
-    border-radius: 10px;
+    border-radius: 7.5px;
     bottom: 0;
     content: "";
     display: block;
@@ -117,7 +117,7 @@ const ImageWrapper = styled.div`
   }
 
   img {
-    border-radius: 10px;
+    border-radius: 7.5px;
   }
 `;
 

@@ -1,4 +1,6 @@
 import { Code, HelpCircle, Speaker } from "styled-icons/feather";
+import Section1 from "../assets/images/foundation_section_1.jpg";
+import Section2 from "../assets/images/foundation_section_2.jpg";
 
 export const foundation = {
   hero: {
@@ -36,4 +38,36 @@ export const foundation = {
       },
     ],
   },
+  sections: [
+    {
+      image: {
+        src: Section1,
+        alt: "SET Competition (2018)",
+      },
+      text: {
+        title: "SET’s mission was inspired by the needs of today’s youth.",
+        content:
+          "The world is changing at a faster rate than ever before, and we want to inspire the next generation of engineers to follow their dreams, and to continue this trend.",
+        link: {
+          href: "/#initiatives",
+          caption: "Learn more",
+        },
+      },
+    },
+    {
+      image: {
+        src: Section2,
+        alt: "Our team (2018)",
+      },
+      text: {
+        title: "Meet the student team that runs the SET Foundation.",
+        content:
+          "What started as a small team back in 2018 quickly grew into a larger team to support the growing number of initiatives taken by the SET Foundation.",
+        link: {
+          href: "/#team",
+          caption: "Meet the team",
+        },
+      },
+    },
+  ],
 };

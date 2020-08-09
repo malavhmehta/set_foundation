@@ -7,8 +7,8 @@ import Fader from "react-fader";
 import { GlobalStyle, theme, media } from "../styles";
 import { global, foundation } from "../data";
 
-import { Nav } from "../components/common/Nav";
-import Footer from "../components/common/Footer";
+import { Nav } from "../components/common";
+import { Footer } from "../components/common";
 
 import { ErrorPage } from "./404";
 import { Home } from "./Home";

@@ -10,13 +10,12 @@ const skewFactor = 6;
 
 const Background = styled.div`
   background-color: ${colors.bg_alt};
-  margin: 0 0 5rem;
+  margin: 0;
   padding: 10rem 0;
   ${media.sm`padding: 15rem 0;`};
-  ${media.lg`padding: 20rem 0 12.5rem;`};
+  ${media.lg`padding: 15rem 0 10rem;`};
   transform: skewY(-${skewFactor}deg) translateY(-180px);
   ${media.sm`transform: skewY(-${skewFactor}deg) translateY(-225px);`};
-  ${media.lg`transform: skewY(-${skewFactor}deg) translateY(-300px);`};
   transition: ${theme.transition};
   width: 100%;
   z-index: -1;
@@ -46,16 +45,14 @@ const Description = styled.p`
 
 const CardTitle = styled.h3`
   color: ${colors.text_alt};
-  font-size: ${fontSizes.sm};
-  ${media.md`font-size: ${fontSizes.md}`};
+  font-size: ${fontSizes.md};
   font-weight: 500;
   margin-top: 2rem;
 `;
 
 const CardDescription = styled.p`
   color: ${colors.text_alt};
-  font-size: ${fontSizes.xs};
-  ${media.md`font-size: ${fontSizes.sm}`};
+  font-size: ${fontSizes.sm};
   font-weight: 500;
   margin-top: 1rem;
   opacity: 0.6;
@@ -112,9 +109,9 @@ export const Initiatives = (props) => (
       </div>
       <div className="row">
         {props.data.list.map((card) => (
-          <div className="col-12 col-sm-6 col-md-4 mt-5">
+          <div className="col-12 col-sm-6 col-md-4 mt-5" key={card.href}>
             <Fade bottom>
-              <Clickable to={card.href} key={card.href}>
+              <Clickable to={card.href}>
                 <Icon>{renderIcon(card.icon)}</Icon>
                 <CardTitle>{card.title}</CardTitle>
                 <CardDescription>{card.description}</CardDescription>
