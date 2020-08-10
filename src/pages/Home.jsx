@@ -1,16 +1,22 @@
 import React from "react";
 
 import { Landing, Initiatives } from "../components/home";
-import { Section } from "../components/common";
+import { Section, Anchor } from "../components/common";
 
 let initial = 1;
 
 export const Home = (props) => (
   <div id="home">
     <Landing data={props.data.hero} />
+
+    <Anchor anchor="initiatives" />
     <Initiatives data={props.data.initiatives} />
+
+    <Anchor anchor="about" />
     {props.data.sections.map((section) => (
       <Section data={section} ltr={initial++ % 2} key={initial} />
     ))}
+
+    <Anchor anchor="team" />
   </div>
 );

@@ -4,7 +4,7 @@ import { ArrowRight } from "styled-icons/feather";
 import { HashLink } from "react-router-hash-link";
 import Fade from "react-reveal";
 
-import { theme, media } from "../../styles";
+import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
 const Title = styled.h2`
@@ -64,10 +64,31 @@ const ImageWrapper = styled.div.attrs({
     props.ltr ^ props.top ? "flex" : "none"} !important;`};
 `;
 
+const StyledSection = styled.div.attrs({
+  className: "container",
+})`
+  margin-bottom: 6rem;
+
+  .img-fluid {
+    margin-bottom: 3rem;
+  }
+`;
+
+const StyledImage = styled.img.attrs({
+  className: "img-fluid",
+})`
+  border-radius: ${theme.borderRadius};
+  box-shadow: 1rem 0 3rem ${hex2rgba(colors.bg_alt, 0.2)};
+`;
+
 const Image = (props) => (
   <ImageWrapper ltr={props.ltr} top={props.top}>
     <Fade right={!props.top} left={props.top}>
-      <img src={props.data.src} alt={props.data.alt} className="img-fluid" />
+      <StyledImage
+        src={props.data.src}
+        alt={props.data.alt}
+        className="img-fluid"
+      />
     </Fade>
   </ImageWrapper>
 );
@@ -88,16 +109,6 @@ const Text = (props) => (
     </Fade>
   </div>
 );
-
-const StyledSection = styled.div.attrs({
-  className: "container",
-})`
-  margin-bottom: 6rem;
-
-  .img-fluid {
-    margin-bottom: 3rem;
-  }
-`;
 
 export const Section = (props) => (
   <StyledSection>
