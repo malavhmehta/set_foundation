@@ -1,5 +1,6 @@
 {
-  "name": "set-final",
+  "homepage": "https://malav-mehta.github.io/set",
+  "name": "set-foundation",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
