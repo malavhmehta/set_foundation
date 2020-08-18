@@ -83,7 +83,7 @@ export const foundation = {
           {
             role: "Marketing Director",
             name: "Mingde Yin",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/bzXmBnq/mingde.png",
           },
           {
             role: "Outreach Director",
@@ -98,7 +98,7 @@ export const foundation = {
           {
             role: "Logistics Director",
             name: "Victor Wang",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/tXjGtFQ/victor.png",
           },
           {
             role: "Board Member",
@@ -113,7 +113,7 @@ export const foundation = {
           {
             role: "Corporate Relations",
             name: "David Chen",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/txzTFdg/david.png",
           },
         ],
       },
@@ -125,22 +125,22 @@ export const foundation = {
           {
             role: "Co-president",
             name: "Albert Nitu",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/4sR1M2N/albert.png",
           },
           {
             role: "Co-president",
             name: "Ayan Hafeez",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/NyFrkN0/ayan.png",
           },
           {
             role: "Logistics Director",
             name: "Allen Tao",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/Y746rzW/allen.png",
           },
           {
             role: "Corporate Relations",
             name: "Derek Huynh",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/NV4ByN1/derek.png",
           },
           {
             role: "Web Developer",
@@ -150,22 +150,22 @@ export const foundation = {
           {
             role: "Plenary Director",
             name: "Maleeka Ellaithy",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/WPkFVgG/maleeka.png",
           },
           {
             role: "Internal Affairs",
             name: "Matthew Biniam",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/d2TSDcZ/matthew.png",
           },
           {
             role: "Marketing Director",
             name: "Vanie Tran",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/7j7p1Tz/vanie.png",
           },
           {
             role: "Finance Director",
             name: "Vansh Sethi",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/P5MvDh1/vansh.png",
           },
         ],
         2019: [
@@ -178,6 +178,11 @@ export const foundation = {
             role: "Co-president",
             name: "Kailey Chen",
             image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Finance Director",
+            name: "Ayan Hafeez",
+            image: "https://i.ibb.co/NyFrkN0/ayan.png",
           },
           {
             role: "Corporate Relations",

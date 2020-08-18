@@ -5,13 +5,14 @@ import Switch from "react-router-transition-switch";
 import Fader from "react-fader";
 
 import { GlobalStyle, theme, media } from "../styles";
-import { global, foundation } from "../data";
+import { global, foundation, conference } from "../data";
 
 import { Nav } from "../components/common";
 import { Footer } from "../components/common";
 
 import { ErrorPage } from "./404";
 import { Home } from "./Home";
+import { Conference } from "./Conference";
 
 const { colors, fontSizes } = theme;
 
@@ -101,7 +102,7 @@ class App extends Component {
               </Route>
 
               <Route path="/conference" exact>
-                Conference
+                <Conference data={conference} />
               </Route>
 
               <Route path="/hackathon" exact>

@@ -54,7 +54,7 @@ const ImageWrapper = styled.div`
     content: "";
     display: block;
     left: 0;
-    opacity: 0.65;
+    opacity: 0.35;
     position: absolute;
     right: 0;
     top: 0;
@@ -62,7 +62,7 @@ const ImageWrapper = styled.div`
   }
 
   &:hover:before {
-    opacity: 0.4;
+    opacity: 0.1;
   }
 `;
 
