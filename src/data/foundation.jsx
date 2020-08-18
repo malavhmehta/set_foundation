@@ -70,4 +70,132 @@ export const foundation = {
       },
     },
   ],
+  teams: [
+    {
+      label: "The national board",
+      team: {
+        2020: [
+          {
+            role: "President",
+            name: "Nathan Biniam",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Marketing Director",
+            name: "Mingde Yin",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Outreach Director",
+            name: "Sreepriya Pulyassara",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Finance Director",
+            name: "Muzammil Syed",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Logistics Director",
+            name: "Victor Wang",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Board Member",
+            name: "Terry Ju",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Board Member",
+            name: "Dhruv Rawat",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Corporate Relations",
+            name: "David Chen",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+        ],
+      },
+    },
+    {
+      label: "The conference team",
+      team: {
+        2020: [
+          {
+            role: "Co-president",
+            name: "Albert Nitu",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Co-president",
+            name: "Ayan Hafeez",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Logistics Director",
+            name: "Allen Tao",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Corporate Relations",
+            name: "Derek Huynh",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Web Developer",
+            name: "Malav Mehta",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Plenary Director",
+            name: "Maleeka Ellaithy",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Internal Affairs",
+            name: "Matthew Biniam",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Marketing Director",
+            name: "Vanie Tran",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Finance Director",
+            name: "Vansh Sethi",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+        ],
+        2019: [
+          {
+            role: "Co-president",
+            name: "Dhruv Rawat",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Co-president",
+            name: "Kailey Chen",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Corporate Relations",
+            name: "Felix Hu",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Plenary Director",
+            name: "Avery Lin",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+          {
+            role: "Marketing Director",
+            name: "Grace Gao",
+            image: "https://i.ibb.co/cvrHHvq/img.png",
+          },
+        ],
+      },
+    },
+  ],
 };
