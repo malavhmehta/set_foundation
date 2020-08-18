@@ -14,7 +14,7 @@ export const Home = (props) => (
 
     <Anchor anchor="about" />
     {props.data.sections.map((section) => (
-      <Section data={section} ltr={initial++ % 2} key={initial} />
+      <Section data={section} ltr={!!(initial++ % 2)} key={initial} />
     ))}
 
     <Anchor anchor="team" />

@@ -115,7 +115,7 @@ export const Section = (props) => (
     <div className="row">
       <Image data={props.data.image} ltr={props.ltr} top={true} />
       <Text data={props.data.text} ltr={props.ltr} />
-      {props.ltr == true && <Image data={props.data.image} ltr={props.ltr} />}
+      {props.ltr && <Image data={props.data.image} ltr={props.ltr} />}
     </div>
   </StyledSection>
 );
