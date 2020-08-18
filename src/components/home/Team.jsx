@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Fade from "react-reveal";
+import Fader from "react-fader";
 import styled from "styled-components";
 
 import { theme, media } from "../../styles";
@@ -164,25 +165,27 @@ export class Team extends Component {
           )}
         </div>
 
-        <div className="row">
-          {current_team.map((member, i) => (
-            <div className="col-6 col-sm-4 col-md-3" key={i}>
-              <Fade bottom>
-                <ImageWrapper>
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    className="img-fluid"
-                  />
-                </ImageWrapper>
-              </Fade>
-              <Fade bottom>
-                <Name>{member.name}</Name>
-                <Role>{member.role}</Role>
-              </Fade>
-            </div>
-          ))}
-        </div>
+        <Fader>
+          <div className="row">
+            {current_team.map((member, i) => (
+              <div className="col-6 col-sm-4 col-md-3" key={i}>
+                <Fade bottom>
+                  <ImageWrapper>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      className="img-fluid"
+                    />
+                  </ImageWrapper>
+                </Fade>
+                <Fade bottom>
+                  <Name>{member.name}</Name>
+                  <Role>{member.role}</Role>
+                </Fade>
+              </div>
+            ))}
+          </div>
+        </Fader>
       </div>
     );
   }
