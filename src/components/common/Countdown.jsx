@@ -1,63 +1,86 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { theme, hex2rgba, media } from "../../styles";
 const { colors, fontSizes } = theme;
 
-export class Countdown extends Component {
-  constructor(props) {
-    super(props);
-    this.counter = null;
+const Wrapper = styled.div.attrs({
+  className: "container",
+})``;
+const Location = styled.a``;
+const Day = styled.p``;
+const CountdownContainer = styled.div``;
+const Icon = styled.span``;
+const Info = styled.div``;
+const Interval = styled.div``;
+const Value = styled.h2``;
+const Label = styled.p``;
 
-    this.state = {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-      date: new Date(this.props.target).getTime(),
+const timeLeft = (date) => {
+  let diff = +new Date(date) - +new Date();
+  let time = {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
+
+  if (diff > 0) {
+    time = {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((diff / 1000 / 60) % 60),
+      seconds: Math.floor((diff / 1000) % 60),
     };
   }
 
-  componentDidMount() {
-    this.updateTime();
-    this.counter = setInterval(this.updateTime, 1000);
-  }
+  return time;
+};
 
-  componentWillUnmount() {
-    clearInterval(this.counter);
-  }
+const format = (num) => (num < 10 ? "0" : "") + num;
 
-  updateTime = () => {
-    const SECOND = 1000,
-      MINUTE = SECOND * 60,
-      HOUR = MINUTE * 60,
-      DAY = HOUR * 24;
+export const Countdown = (props) => {
+  const [time, setTime] = useState(timeLeft(props.target));
 
-    let now = new Date();
-    let distance = this.state.date - now;
-    let day = 0,
-      hour = 0,
-      minute = 0,
-      second = 0;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTime(timeLeft(props.target));
+    }, 1000);
 
-    if (distance > 0) {
-      day = Math.floor(distance / DAY);
-      hour = Math.floor((distance % DAY) / HOUR);
-      minute = Math.floor((distance % HOUR) / MINUTE);
-      second = Math.floor((distance % MINUTE) / SECOND);
-    }
+    return () => clearTimeout(timer);
+  });
 
-    this.setState({
-      day: day,
-      hour: hour,
-      minute: minute,
-      second: second,
-    });
-  };
+  return (
+    <Wrapper>
+      <Info>
+        <Location href={props.location?.href || "#"}>
+          {props.location?.caption || "TBD"}
+        </Location>
+        <Day>{props.target || "TBD"}</Day>
+      </Info>
 
-  format = (num) => (num < 10 ? "0" : "") + num;
-
-  render() {
-    return <div></div>;
-  }
-}
+      <div className="row">
+        <div className="col-12">
+          <CountdownContainer>
+            <Interval>
+              <Value>{format(time.days)}</Value>
+              <Label>days</Label>
+            </Interval>
+            <Interval>
+              <Value>{format(time.hours)}</Value>
+              <Label>hours</Label>
+            </Interval>
+            <Interval>
+              <Value>{format(time.minutes)}</Value>
+              <Label>minutes</Label>
+            </Interval>
+            <Interval>
+              <Value>{format(time.seconds)}</Value>
+              <Label>seconds</Label>
+            </Interval>
+          </CountdownContainer>
+        </div>
+      </div>
+    </Wrapper>
+  );
+};

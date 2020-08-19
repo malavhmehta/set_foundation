@@ -90,10 +90,7 @@ export const conference = {
     ],
   },
   countdown: {
-    location: {
-      caption: "TBD",
-      href: "",
-    },
-    time: new Date(),
+    location: null, // { caption: "TBD",  href: "" },
+    time: null, // "Nov 17, 2020",
   },
 };
