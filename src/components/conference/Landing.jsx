@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
 import Typical from "react-typical";
 import Fade from "react-reveal";
-import { ArrowRight } from "styled-icons/feather";
 
 import HeroImage from "../../assets/images/conference_hero.jpg";
 

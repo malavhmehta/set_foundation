@@ -7,6 +7,8 @@ import Rogers from "../assets/images/rogers.png";
 import UOttawa from "../assets/images/uottawa.jpg";
 import Wolfram from "../assets/images/wolfram.png";
 
+import { Users, Briefcase, Clock } from "styled-icons/fa-solid";
+
 export const conference = {
   hero: {
     title: {
@@ -58,4 +60,33 @@ export const conference = {
       href: "https://www.wolframalpha.com/",
     },
   ],
+  about: {
+    title: "What is the SET tech conference all about?",
+    content:
+      "Students will have the opportunity to glimpse into engineering, through engaging in networking and experiencing hands-on workshops and activities.",
+    link: {
+      href: "/conference#past",
+      caption: "View past conferences",
+    },
+    cards: [
+      {
+        icon: Users,
+        title: "For high school students, by high school students.",
+        content:
+          "We are a non-profit, student-run organisation founded by a group of high school students from Ottawa, Ontario.",
+      },
+      {
+        icon: Briefcase,
+        title: "Exposure to careers in engineering and technology.",
+        content:
+          "Our conference will give students a broader perspective in choosing their career path, and allow them to make an informed choice.",
+      },
+      {
+        icon: Clock,
+        title: "High school students live in a digital generation.",
+        content:
+          "The world is changing at a faster rate than ever before, and we want to inspire the next generation of engineers to follow their dreams, and to continue this trend.",
+      },
+    ],
+  },
 };
