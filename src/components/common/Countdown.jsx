@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-// import { theme, hex2rgba, media } from "../../styles";
-// const { colors, fontSizes } = theme;
+import { theme, hex2rgba, media } from "../../styles";
+const { colors, fontSizes } = theme;
 
 const Wrapper = styled.div.attrs({
   className: "container",
@@ -10,7 +10,7 @@ const Wrapper = styled.div.attrs({
 const Location = styled.a``;
 const Day = styled.p``;
 const CountdownContainer = styled.div``;
-// const Icon = styled.span``;
+const Icon = styled.span``;
 const Info = styled.div``;
 const Interval = styled.div``;
 const Value = styled.h2``;
