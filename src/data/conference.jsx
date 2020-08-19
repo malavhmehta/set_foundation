@@ -89,4 +89,11 @@ export const conference = {
       },
     ],
   },
+  countdown: {
+    location: {
+      caption: "TBD",
+      href: "",
+    },
+    time: new Date(),
+  },
 };

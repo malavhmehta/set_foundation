@@ -9,9 +9,11 @@ const { colors, fontSizes } = theme;
 const StyledBackground = styled.div.attrs({
   className: "fixed-top",
 })`
-  backdrop-filter: blur(5px);
-  background-color: ${hex2rgba(colors.bg, 0.75)} !important;
-  box-shadow: 0 0 1rem 0 ${hex2rgba(colors.bg, 0.2)};
+  backdrop-filter: ${(props) => (props.top ? "none" : "blur(5px)")};
+  background-color: ${(props) =>
+    props.top ? "transparent" : hex2rgba(colors.bg, 0.75)} !important;
+  box-shadow: ${(props) =>
+    props.top ? "none" : `0 0 1rem 0 ${hex2rgba(colors.bg, 0.2)}`};
   transform: translateY(${(props) => (props.show ? "0%" : "-120%")});
   transition: ${theme.transition};
   width: 100%;
@@ -252,6 +254,7 @@ export class Nav extends Component {
       prev: 0,
       show: true,
       hover: "",
+      top: true,
     };
   }
 
@@ -264,6 +267,11 @@ export class Nav extends Component {
 
   handleScroll = () => {
     let pos = window.scrollY;
+    let top = false;
+
+    if (pos < 10) {
+      top = true;
+    }
 
     if (this.state.toggled) {
       window.scroll(this.state.prev, 0);
@@ -277,12 +285,18 @@ export class Nav extends Component {
       this.setState({
         prev: pos,
         show: true,
+        top,
       });
     } else if (pos - this.state.prev >= this.state.delta) {
       this.setState({
         prev: pos,
         show: false,
         hover: "",
+        top: top,
+      });
+    } else {
+      this.setState({
+        top: top,
       });
     }
   };
@@ -333,12 +347,12 @@ export class Nav extends Component {
   }
 
   render() {
-    const { show, toggled, hover } = this.state;
+    const { show, toggled, hover, top } = this.state;
 
     const { pathname } = this.props.current;
 
     return (
-      <StyledBackground show={show}>
+      <StyledBackground show={show} top={top}>
         <StyledNav>
           <NavBrand to={"/"} onClick={this.scrollTop}>
             {this.props.navbar.brand}
