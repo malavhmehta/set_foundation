@@ -53,9 +53,9 @@ function CurrentRoute({ listen, children }) {
 
 class App extends Component {
   state = {
-    animationDone: true,
+    animationDone: false,
     dataFetchDone: false,
-    animationLength: 1250,
+    animationLength: 750,
   };
 
   finishAnimation = () => {
