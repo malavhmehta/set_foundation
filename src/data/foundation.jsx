@@ -87,12 +87,12 @@ export const foundation = {
           },
           {
             role: "Outreach Director",
-            name: "Sreepriya Pulyassara",
+            name: "Sreepriya Pulyassary",
             image: "https://i.ibb.co/cvrHHvq/img.png",
           },
           {
             role: "Finance Director",
-            name: "Muzammil Syed",
+            name: "Muzammiluddin Syed",
             image: "https://i.ibb.co/cvrHHvq/img.png",
           },
           {
