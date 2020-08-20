@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Landing, Sponsors, About } from "../components/conference";
+import { Landing, Sponsors, About, Why } from "../components/conference";
 import { Anchor, Countdown } from "../components/common";
 
 export const Conference = (props) => (
@@ -14,6 +14,7 @@ export const Conference = (props) => (
       location={props.data.countdown.location}
     />
     <Anchor anchor="why" />
+    <Why data={props.data.why} />
     <Anchor anchor="schedule" />
     <Anchor anchor="past" />
   </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Fade from "react-reveal";
 import { MapPin, Calendar } from "styled-icons/feather";
 
 import { theme, hex2rgba, media } from "../../styles";
@@ -176,43 +177,47 @@ export const Countdown = (props) => {
     <Wrapper>
       <div className="row">
         <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-          <Info>
-            <Location href={props.location?.href || "#"}>
-              <Icon>
-                <MapPin />
-              </Icon>
-              {props.location?.caption || "TBD"}
-            </Location>
-            <Day>
-              <Icon>
-                <Calendar />
-              </Icon>
-              {props.target || "TBD"}
-            </Day>
-          </Info>
+          <Fade bottom>
+            <Info>
+              <Location href={props.location?.href || "#"}>
+                <Icon>
+                  <MapPin />
+                </Icon>
+                {props.location?.caption || "TBD"}
+              </Location>
+              <Day>
+                <Icon>
+                  <Calendar />
+                </Icon>
+                {props.target || "TBD"}
+              </Day>
+            </Info>
+          </Fade>
         </div>
       </div>
 
       <div className="row">
         <div className="col-12">
-          <CountdownContainer>
-            <Interval>
-              <Value>{format(time.days)}</Value>
-              <Label>days</Label>
-            </Interval>
-            <Interval>
-              <Value>{format(time.hours)}</Value>
-              <Label>hours</Label>
-            </Interval>
-            <Interval>
-              <Value>{format(time.minutes)}</Value>
-              <Label>minutes</Label>
-            </Interval>
-            <Interval>
-              <Value>{format(time.seconds)}</Value>
-              <Label>seconds</Label>
-            </Interval>
-          </CountdownContainer>
+          <Fade bottom>
+            <CountdownContainer>
+              <Interval>
+                <Value>{format(time.days)}</Value>
+                <Label>days</Label>
+              </Interval>
+              <Interval>
+                <Value>{format(time.hours)}</Value>
+                <Label>hours</Label>
+              </Interval>
+              <Interval>
+                <Value>{format(time.minutes)}</Value>
+                <Label>minutes</Label>
+              </Interval>
+              <Interval>
+                <Value>{format(time.seconds)}</Value>
+                <Label>seconds</Label>
+              </Interval>
+            </CountdownContainer>
+          </Fade>
         </div>
       </div>
     </Wrapper>

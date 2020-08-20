@@ -141,7 +141,7 @@ export const About = (props) => {
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items start mt-5 mt-md-0">
-          <Fade left>
+          <Fade bottom left>
             <Title>{props.data.title}</Title>
             <Content>{props.data.content}</Content>
             <StyledLink to={props.data.link.href}>
@@ -153,7 +153,7 @@ export const About = (props) => {
           </Fade>
         </div>
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center my-5">
-          <Fade right>
+          <Fade bottom right>
             <Fader>
               <Card>
                 <Icon>{renderIcon(props.data.cards[pos].icon)}</Icon>

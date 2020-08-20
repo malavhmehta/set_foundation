@@ -83,7 +83,7 @@ const StyledImage = styled.img.attrs({
 
 const Image = (props) => (
   <ImageWrapper ltr={props.ltr} top={props.top}>
-    <Fade right={!props.top} left={props.top}>
+    <Fade bottom right={!props.top} left={props.top}>
       <StyledImage
         src={props.data.src}
         alt={props.data.alt}
@@ -95,7 +95,7 @@ const Image = (props) => (
 
 const Text = (props) => (
   <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items start">
-    <Fade right={!props.ltr} left={props.ltr}>
+    <Fade bottom right={!props.ltr} left={props.ltr}>
       <Title>{props.data.title}</Title>
       <Content>{props.data.content}</Content>
       {props.data.link && (

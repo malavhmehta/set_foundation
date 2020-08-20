@@ -8,6 +8,13 @@ import UOttawa from "../assets/images/uottawa.jpg";
 import Wolfram from "../assets/images/wolfram.png";
 
 import { Users, Briefcase, Clock } from "styled-icons/fa-solid";
+import { NetworkChart, Trophy } from "styled-icons/boxicons-regular";
+import { User, Tool } from "styled-icons/feather";
+
+import Speaker from "../assets/images/speaker.jpg";
+import Networking from "../assets/images/network.jpg";
+import Workshops from "../assets/images/competition.jpg";
+import Competition from "../assets/images/pitch.jpg";
 
 export const conference = {
   hero: {
@@ -93,4 +100,32 @@ export const conference = {
     location: { caption: "TBD", href: "" },
     time: "Nov 17, 2020",
   },
+  why: [
+    {
+      image: Speaker,
+      icon: User,
+      reason: "Guest speakers",
+      description: "veterans here to discuss important topics in engineering.",
+    },
+    {
+      image: Networking,
+      icon: NetworkChart,
+      reason: "Networking",
+      description:
+        "a chance to ask questions and talk with with professionals.",
+    },
+    {
+      image: Workshops,
+      icon: Tool,
+      reason: "Workshops",
+      description: "hands-on activities led by industry professionals.",
+    },
+    {
+      image: Competition,
+      icon: Trophy,
+      reason: "Competition",
+      description:
+        "a friendly engineering challenge with prizes for winning teams!",
+    },
+  ],
 };
