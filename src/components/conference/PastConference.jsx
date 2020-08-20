@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import Fader from "react-fader";
+import Fade from "react-reveal";
 
 import { Triangle } from "../common";
 
@@ -165,7 +166,6 @@ export const PastConference = (props) => {
     Object.keys(props.data.conferences).reverse()[0]
   );
   let yearSelect = useRef();
-  console.log(props);
 
   return (
     <>
@@ -174,88 +174,102 @@ export const PastConference = (props) => {
         <div className="container py-5">
           <div className="row">
             <div className="col-12 col-md-6 d-flex align-items-center">
-              <Title>{props.data.title}</Title>
+              <Fade bottom>
+                <Title>{props.data.title}</Title>
+              </Fade>
             </div>
             <div className="col-12 col-md-6 d-md-flex justify-content-md-end">
-              <Select
-                onChange={() => {
-                  setCur(yearSelect.current.value);
-                }}
-                value={cur}
-                ref={yearSelect}
-              >
-                {Object.keys(props.data.conferences)
-                  .reverse()
-                  .map((year) => (
-                    <option value={year} key={year}>
-                      Year: {year}
-                    </option>
-                  ))}
-              </Select>
+              <Fade bottom>
+                <Select
+                  onChange={() => {
+                    setCur(yearSelect.current.value);
+                  }}
+                  value={cur}
+                  ref={yearSelect}
+                >
+                  {Object.keys(props.data.conferences)
+                    .reverse()
+                    .map((year) => (
+                      <option value={year} key={year}>
+                        Year: {year}
+                      </option>
+                    ))}
+                </Select>
+              </Fade>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
-              <Description>{props.data.description}</Description>
+              <Fade bottom>
+                <Description>{props.data.description}</Description>
+              </Fade>
             </div>
           </div>
 
           <Fader>
             <div className="row">
               <div className="col-12 col-md-6">
-                <Header>Competition</Header>
-                <Text>{props.data.conferences[cur].competition}</Text>
+                <Fade bottom>
+                  <Header>Competition</Header>
+                  <Text>{props.data.conferences[cur].competition}</Text>
+                </Fade>
               </div>
               <div className="col-12 col-md-6">
-                <ImageWrapper>
-                  <Image
-                    src={props.data.conferences[cur].image}
-                    alt={`${cur} conference`}
-                  />
-                </ImageWrapper>
+                <Fade bottom>
+                  <ImageWrapper>
+                    <Image
+                      src={props.data.conferences[cur].image}
+                      alt={`${cur} conference`}
+                    />
+                  </ImageWrapper>
+                </Fade>
               </div>
             </div>
 
             <div className="row">
               <div className="col-12 col-md-6">
-                <Header className="mt-4">Winners</Header>
-                <Table>
-                  <thead>
-                    <tr>
-                      <th>Place</th>
-                      <th>Team Name</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {props.data.conferences[cur].winners.map((winner) => (
-                      <tr key={winner.place}>
-                        <td>{winner.place}</td>
-                        <td>{winner.name}</td>
+                <Fade bottom>
+                  <Header className="mt-4">Winners</Header>
+                  <Table>
+                    <thead>
+                      <tr>
+                        <th>Place</th>
+                        <th>Team Name</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {props.data.conferences[cur].winners.map((winner) => (
+                        <tr key={winner.place}>
+                          <td>{winner.place}</td>
+                          <td>{winner.name}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Fade>
               </div>
               <div className="col-12 col-md-6">
-                <Header className="mt-4">Speakers</Header>
-                <Table>
-                  <thead>
-                    <tr>
-                      <th />
-                      <th>Name</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {props.data.conferences[cur].speakers.map((speaker) => (
-                      <tr key={speaker.name}>
-                        <td>
-                          <Avatar src={speaker.avatar} alt={speaker.name} />
-                        </td>
-                        <td>{speaker.name}</td>
+                <Fade bottom>
+                  <Header className="mt-4">Speakers</Header>
+                  <Table>
+                    <thead>
+                      <tr>
+                        <th />
+                        <th>Name</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {props.data.conferences[cur].speakers.map((speaker) => (
+                        <tr key={speaker.name}>
+                          <td>
+                            <Avatar src={speaker.avatar} alt={speaker.name} />
+                          </td>
+                          <td>{speaker.name}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Fade>
               </div>
             </div>
           </Fader>
