@@ -6,7 +6,9 @@ import { Triangle } from "../common";
 import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
-const StyledBackground = styled.div``;
+const StyledBackground = styled.div`
+  background-color: ${colors.bg_alt};
+`;
 
 export const PastConference = (props) => {
   let yearSelect = useRef();
