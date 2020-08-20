@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, ThemeProvider } from "styled-components";
 import { Instagram, Linkedin, Mail } from "styled-icons/feather";
 import { withRouter } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -7,11 +7,10 @@ import Fade from "react-reveal";
 
 import { hex2rgba, theme, media } from "../../styles";
 
-let { colors } = theme;
-const { fontSizes } = theme;
+const { colors, fontSizes } = theme;
 
 const FooterWrapper = styled.footer`
-  background-color: ${colors.bg_alt};
+  background-color: ${(props) => props.theme.bg_alt};
   width: 100%;
 `;
 
@@ -24,14 +23,14 @@ const Container = styled.div.attrs({
 `;
 
 const NotificationHeadline = styled.h3`
-  color: ${colors.text_alt};
+  color: ${(props) => props.theme.text_alt};
   font-size: ${fontSizes.md};
   font-weight: 500;
   margin: 0 0 1rem;
 `;
 
 const NotificationBody = styled.p`
-  color: ${hex2rgba(colors.text_alt, 0.6)};
+  color: ${(props) => hex2rgba(props.theme.text_alt, 0.6)};
   font-size: ${fontSizes.sm};
   font-weight: 500;
   margin: 0;
@@ -40,10 +39,13 @@ const NotificationBody = styled.p`
 const EmailInput = styled.input.attrs({
   className: "form-control",
 })`
-  background-color: ${hex2rgba(colors.bg, 0.05)};
-  border: 1px solid ${hex2rgba(colors.bg, 0.15)} !important;
+  background-color: ${(props) => {
+    if (!props.alt) return hex2rgba(props.theme.bg, 0.05);
+    else return "transparent";
+  }};
+  border: 1px solid ${(props) => hex2rgba(props.theme.bg, 0.15)} !important;
   box-shadow: none !important;
-  color: ${hex2rgba(colors.text_alt, 0.95)} !important;
+  color: ${(props) => hex2rgba(props.theme.text_alt, 0.95)} !important;
   font-size: ${fontSizes.sm};
   font-weight: 600;
   margin-right: 2rem;
@@ -53,11 +55,14 @@ const EmailInput = styled.input.attrs({
   &:hover,
   &:active,
   &:focus {
-    background-color: ${hex2rgba(colors.bg, 0.07)};
+    background-color: ${(props) => {
+      if (!props.alt) return hex2rgba(props.theme.bg, 0.07);
+      else return hex2rgba(props.theme.bg, 0.03);
+    }};
   }
 
   ::placeholder {
-    color: ${hex2rgba(colors.text_alt, 0.6)} !important;
+    color: ${(props) => hex2rgba(props.theme.text_alt, 0.6)} !important;
     font-weight: 600;
   }
 `;
@@ -65,7 +70,7 @@ const EmailInput = styled.input.attrs({
 const SubmitButton = styled.button.attrs({
   className: "btn",
 })`
-  background-color: ${colors.accent};
+  background-color: ${(props) => props.theme.accent};
   color: ${colors.text_alt} !important;
   font-size: ${fontSizes.sm};
   font-weight: 600;
@@ -73,7 +78,7 @@ const SubmitButton = styled.button.attrs({
 
   &:hover,
   &:active {
-    background-color: ${colors.accent_darken};
+    background-color: ${(props) => props.theme.accent_darken};
     outline: none;
   }
 
@@ -88,7 +93,7 @@ const SubmitButton = styled.button.attrs({
 `;
 
 const Hr = styled.hr`
-  border-top: 1px solid ${hex2rgba(colors.bg, 0.1)};
+  border-top: 1px solid ${(props) => hex2rgba(props.theme.bg, 0.1)};
 `;
 
 const Notification = styled.div.attrs({
@@ -98,7 +103,7 @@ const Notification = styled.div.attrs({
 `;
 
 const InlineLink = styled(HashLink)`
-  color: ${colors.text_alt} !important;
+  color: ${(props) => props.theme.text_alt} !important;
   font-size: ${fontSizes.sm};
   font-weight: 500;
   margin: 0;
@@ -107,7 +112,7 @@ const InlineLink = styled(HashLink)`
   transition: ${theme.transition};
 
   &:before {
-    background-color: ${colors.text_alt};
+    background-color: ${(props) => props.theme.text_alt};
     bottom: -0.1rem;
     content: "";
     left: 0;
@@ -133,14 +138,14 @@ const FooterContent = styled.div.attrs({
 `;
 
 const Brand = styled.h2`
-  color: ${colors.text_alt};
+  color: ${(props) => props.theme.text_alt};
   font-size: ${fontSizes.sm};
   ${media.md`font-size: ${fontSizes.md};`};
   font-weight: bold;
 `;
 
 const BrandDescription = styled.p`
-  color: ${colors.text_alt};
+  color: ${(props) => props.theme.text_alt};
   font-size: ${fontSizes.xs};
   font-weight: 500;
   opacity: 0.4;
@@ -178,8 +183,8 @@ const Icon = styled.a`
 `;
 
 const StyledIcon = css`
-  color: ${colors.bg_alt} !important;
-  fill: ${colors.bg};
+  color: ${(props) => props.theme.bg_alt} !important;
+  fill: ${(props) => props.theme.bg};
 `;
 
 const Ig = styled(Instagram)`
@@ -195,7 +200,7 @@ const Ml = styled(Mail)`
 `;
 
 const NavLink = styled(HashLink)`
-  color: ${colors.text_alt} !important;
+  color: ${(props) => props.theme.text_alt} !important;
   font-size: ${fontSizes.xxs};
   font-weight: 600;
   opacity: 0.4;
@@ -209,7 +214,7 @@ const NavLink = styled(HashLink)`
 `;
 
 const DropdownLink = styled(HashLink)`
-  color: ${colors.text_alt} !important;
+  color: ${(props) => props.theme.text_alt} !important;
   cursor: pointer;
   font-size: ${fontSizes.sm};
   font-weight: 600;
@@ -270,117 +275,123 @@ export class Footer extends Component {
   };
 
   render() {
-    if (this.state.route === "/conference") {
-      [colors.bg_alt, colors.bg] = [theme.colors.bg, theme.colors.bg_alt];
-      [colors.text_alt, colors.text] = [
-        theme.colors.text,
-        theme.colors.text_alt,
-      ];
+    let colors = JSON.parse(JSON.stringify(theme.colors));
+    let alt = this.props.route.pathname === "/conference";
+
+    if (alt) {
+      colors.bg_alt = theme.colors.bg;
+      colors.bg = theme.colors.bg_alt;
+
+      colors.text_alt = theme.colors.text;
+      colors.text = theme.colors.text_alt;
     }
 
     return (
-      <FooterWrapper>
-        <Container>
-          <Fade bottom cascade>
-            <Notification>
-              <div className="col-12 col-md-6 d-flex align-items-start flex-column justify-content-center">
-                <NotificationHeadline>
-                  Want to hear more from us?
-                </NotificationHeadline>
-                <NotificationBody>
-                  Get messages from us, straight to your inbox.
-                </NotificationBody>
-              </div>
-              <div className="col-12 col-md-6 d-flex justify-content-md-end mt-4 mt-md-0">
-                <form onSubmit={this.handleSubmit} className="form-inline">
-                  <EmailInput
-                    type="text"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    placeholder={"you@email.com"}
-                  />
-                  <SubmitButton
-                    type="submit"
-                    className="mt-4 mt-sm-0 mt-md-4 mt-lg-0"
-                    disabled={this.state.error || this.state.email === ""}
-                  >
-                    Subscribe
-                  </SubmitButton>
-                </form>
-              </div>
-            </Notification>
-            <Hr />
-
-            <Notification>
-              <div className="col-12 col-md-6 d-flex align-items-start flex-column justify-content-center">
-                <NotificationHeadline>
-                  Our conference is happening soon. Register today.
-                </NotificationHeadline>
-                <NotificationBody>
-                  The annual SET Conference is happening soon. Learn more{" "}
-                  <InlineLink to="/conference">here</InlineLink>.
-                </NotificationBody>
-              </div>
-              <div className="col-12 col-md-6 d-flex align-items-center justify-content-md-end mt-4 mt-md-0">
-                <SubmitButton
-                  type="button"
-                  onClick={() => this.redirect(this.props.footer.action.href)}
-                >
-                  {this.props.footer.action.caption}
-                </SubmitButton>
-              </div>
-            </Notification>
-            <Hr />
-          </Fade>
-
-          <FooterContent>
-            <div className="col-12 col-lg-4">
-              <Fade bottom>
-                <SideWrapper>
-                  <Brand>{this.props.footer.brand}</Brand>
-                  <BrandDescription>Registered NPO.</BrandDescription>
-                  <SocialMedia>
-                    <Icon href={this.props.social.instagram}>
-                      <Ig />
-                    </Icon>
-
-                    <Icon href={this.props.social.linkedin}>
-                      <In />
-                    </Icon>
-
-                    <Icon href={this.props.social.email}>
-                      <Ml />
-                    </Icon>
-                  </SocialMedia>
-                </SideWrapper>
-              </Fade>
-            </div>
-            <Fade bottom>
-              <div className="col-12 col-lg-8">
-                <div className="row">
-                  {this.props.footer.links.map(
-                    (link) =>
-                      link.anchors && (
-                        <AnchorsWrapper key={link.href}>
-                          <NavLink to={link.href}>{link.caption}</NavLink>
-                          {link.anchors &&
-                            link.anchors.map((anchor) => (
-                              <DropdownLink
-                                to={link.href + anchor.href}
-                                key={link.href + anchor.href}
-                              >
-                                {anchor.caption}
-                              </DropdownLink>
-                            ))}
-                        </AnchorsWrapper>
-                      )
-                  )}
+      <ThemeProvider theme={colors}>
+        <FooterWrapper>
+          <Container>
+            <Fade bottom cascade>
+              <Notification>
+                <div className="col-12 col-md-6 d-flex align-items-start flex-column justify-content-center">
+                  <NotificationHeadline>
+                    Want to hear more from us?
+                  </NotificationHeadline>
+                  <NotificationBody>
+                    Get messages from us, straight to your inbox.
+                  </NotificationBody>
                 </div>
-              </div>
+                <div className="col-12 col-md-6 d-flex justify-content-md-end mt-4 mt-md-0">
+                  <form onSubmit={this.handleSubmit} className="form-inline">
+                    <EmailInput
+                      alt={alt ? 1 : 0}
+                      type="text"
+                      value={this.state.email}
+                      onChange={this.handleChange}
+                      placeholder={"you@email.com"}
+                    />
+                    <SubmitButton
+                      type="submit"
+                      className="mt-4 mt-sm-0 mt-md-4 mt-lg-0"
+                      disabled={this.state.error || this.state.email === ""}
+                    >
+                      Subscribe
+                    </SubmitButton>
+                  </form>
+                </div>
+              </Notification>
+              <Hr />
+
+              <Notification>
+                <div className="col-12 col-md-6 d-flex align-items-start flex-column justify-content-center">
+                  <NotificationHeadline>
+                    Our conference is happening soon. Register today.
+                  </NotificationHeadline>
+                  <NotificationBody>
+                    The annual SET Conference is happening soon. Learn more{" "}
+                    <InlineLink to="/conference">here</InlineLink>.
+                  </NotificationBody>
+                </div>
+                <div className="col-12 col-md-6 d-flex align-items-center justify-content-md-end mt-4 mt-md-0">
+                  <SubmitButton
+                    type="button"
+                    onClick={() => this.redirect(this.props.footer.action.href)}
+                  >
+                    {this.props.footer.action.caption}
+                  </SubmitButton>
+                </div>
+              </Notification>
+              <Hr />
             </Fade>
-          </FooterContent>
-        </Container>
-      </FooterWrapper>
+
+            <FooterContent>
+              <div className="col-12 col-lg-4">
+                <Fade bottom>
+                  <SideWrapper>
+                    <Brand>{this.props.footer.brand}</Brand>
+                    <BrandDescription>Registered NPO.</BrandDescription>
+                    <SocialMedia>
+                      <Icon href={this.props.social.instagram}>
+                        <Ig />
+                      </Icon>
+
+                      <Icon href={this.props.social.linkedin}>
+                        <In />
+                      </Icon>
+
+                      <Icon href={this.props.social.email}>
+                        <Ml />
+                      </Icon>
+                    </SocialMedia>
+                  </SideWrapper>
+                </Fade>
+              </div>
+              <Fade bottom>
+                <div className="col-12 col-lg-8">
+                  <div className="row">
+                    {this.props.footer.links.map(
+                      (link) =>
+                        link.anchors && (
+                          <AnchorsWrapper key={link.href}>
+                            <NavLink to={link.href}>{link.caption}</NavLink>
+                            {link.anchors &&
+                              link.anchors.map((anchor) => (
+                                <DropdownLink
+                                  to={link.href + anchor.href}
+                                  key={link.href + anchor.href}
+                                >
+                                  {anchor.caption}
+                                </DropdownLink>
+                              ))}
+                          </AnchorsWrapper>
+                        )
+                    )}
+                  </div>
+                </div>
+              </Fade>
+            </FooterContent>
+          </Container>
+        </FooterWrapper>
+      </ThemeProvider>
     );
   }
 }
