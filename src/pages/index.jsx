@@ -11,6 +11,7 @@ import { Nav } from "../components/common";
 import { Footer } from "../components/common";
 
 import { ErrorPage } from "./404";
+import { ComingSoon } from "./ComingSoon";
 import { Home } from "./Home";
 import { Conference } from "./Conference";
 
@@ -110,7 +111,11 @@ class App extends Component {
               </Route>
 
               <Route path="/up" exact>
-                SET Up
+                <ComingSoon />
+              </Route>
+
+              <Route path="/register" exact>
+                <ComingSoon />
               </Route>
 
               <Route path="/contact" exact>
