@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 
 import { Triangle } from "../common";
@@ -9,7 +9,7 @@ const { colors, fontSizes } = theme;
 const StyledBackground = styled.div``;
 
 export const PastConference = (props) => {
-  let yearSelect = createRef();
+  let yearSelect = useRef();
 
   return (
     <>
