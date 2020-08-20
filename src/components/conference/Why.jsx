@@ -15,6 +15,7 @@ const Title = styled.h2`
 
 const CardContainer = styled.div`
   border: 1px solid ${hex2rgba(colors.bg_alt, 0.075)};
+  border-radius: ${theme.borderRadius};
   box-shadow: 0 0 25px ${hex2rgba(colors.bg_alt, 0.02)};
   border-bottom-left-radius: ${theme.borderRadius};
   border-bottom-right-radius: ${theme.borderRadius};
