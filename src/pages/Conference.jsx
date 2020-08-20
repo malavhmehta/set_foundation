@@ -28,6 +28,6 @@ export const Conference = (props) => (
     <ComingSoon title={"Schedule"} />
 
     <Anchor anchor="past" />
-    <PastConference />
+    <PastConference data={props.data.past} />
   </div>
 );

@@ -231,7 +231,7 @@ export class Footer extends Component {
       email: "",
       error: false,
       errorMessage: "",
-      route: this.props.route,
+      route: props.route,
     };
 
     this.handleChange = this.handleChange.bind(this);
