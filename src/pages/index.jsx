@@ -124,7 +124,15 @@ class App extends Component {
               </Route>
             </Switch>
 
-            <Footer footer={global.nav} social={global.social_media} />
+            <CurrentRoute>
+              {(route) => (
+                <Footer
+                  footer={global.nav}
+                  social={global.social_media}
+                  route={route}
+                />
+              )}
+            </CurrentRoute>
           </Router>
         </React.Fragment>
       );

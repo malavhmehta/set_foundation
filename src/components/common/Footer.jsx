@@ -7,7 +7,8 @@ import Fade from "react-reveal";
 
 import { hex2rgba, theme, media } from "../../styles";
 
-const { colors, fontSizes } = theme;
+let { colors } = theme;
+const { fontSizes } = theme;
 
 const FooterWrapper = styled.footer`
   background-color: ${colors.bg_alt};
@@ -230,6 +231,7 @@ export class Footer extends Component {
       email: "",
       error: false,
       errorMessage: "",
+      route: this.props.route,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -268,6 +270,14 @@ export class Footer extends Component {
   };
 
   render() {
+    if (this.state.route === "/conference") {
+      [colors.bg_alt, colors.bg] = [theme.colors.bg, theme.colors.bg_alt];
+      [colors.text_alt, colors.text] = [
+        theme.colors.text,
+        theme.colors.text_alt,
+      ];
+    }
+
     return (
       <FooterWrapper>
         <Container>

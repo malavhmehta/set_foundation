@@ -1,6 +1,12 @@
 import React from "react";
 
-import { Landing, Sponsors, About, Why } from "../components/conference";
+import {
+  Landing,
+  Sponsors,
+  About,
+  Why,
+  PastConference,
+} from "../components/conference";
 import { Anchor, Countdown, ComingSoon } from "../components/common";
 
 export const Conference = (props) => (
@@ -22,5 +28,6 @@ export const Conference = (props) => (
     <ComingSoon title={"Schedule"} />
 
     <Anchor anchor="past" />
+    <PastConference />
   </div>
 );

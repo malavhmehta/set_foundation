@@ -13,7 +13,7 @@ const Title = styled.h2`
   margin: 2.5rem 0;
 `;
 
-const Icon = styled.div`
+const Icon = styled.span`
   display: inline-block;
   color: ${colors.text};
   margin-right: 0.75rem;
@@ -43,7 +43,7 @@ export const ComingSoon = (props) => (
           <Icon>
             <Lock size={"18"} />
           </Icon>
-          Coming soon... check back later for more information.
+          Coming soon...
         </Text>
       </div>
     </div>

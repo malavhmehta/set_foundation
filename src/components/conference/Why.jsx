@@ -124,7 +124,7 @@ export const Why = (props) => (
     </div>
     <div className="row">
       {props.data.map((card) => (
-        <Card data={card} />
+        <Card data={card} key={card.reason} />
       ))}
     </div>
   </div>

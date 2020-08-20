@@ -97,8 +97,8 @@ export const conference = {
     ],
   },
   countdown: {
-    location: { caption: "TBD", href: "" },
-    time: "Nov 17, 2020",
+    location: null, // { caption: "TBD", href: "" },
+    time: null, // "Nov 17, 2020",
   },
   why: [
     {
