@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import Switch from "react-router-transition-switch";
@@ -26,6 +26,16 @@ const ZoomIn = keyframes`
     opacity: 1;
   }
 `;
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 const Loader = styled.div`
   animation: 0.5s ${ZoomIn} ease-out forwards;
@@ -93,6 +103,7 @@ class App extends Component {
               });
             }}
           >
+            <ScrollToTop />
             <CurrentRoute>
               {(route) => <Nav navbar={global.nav} current={route} />}
             </CurrentRoute>
