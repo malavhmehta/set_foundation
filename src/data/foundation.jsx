@@ -145,7 +145,7 @@ export const foundation = {
           {
             role: "Web Developer",
             name: "Malav Mehta",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/qpvt1Gs/Malav-Mehta.jpg",
           },
           {
             role: "Plenary Director",
