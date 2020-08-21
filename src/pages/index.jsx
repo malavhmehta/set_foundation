@@ -14,6 +14,7 @@ import { ErrorPage } from "./404";
 import { ComingSoon } from "./ComingSoon";
 import { Home } from "./Home";
 import { Conference } from "./Conference";
+import { Contact } from "./Contact";
 
 const { colors, fontSizes } = theme;
 
@@ -130,7 +131,7 @@ class App extends Component {
               </Route>
 
               <Route path="/contact" exact>
-                Contact
+                <Contact data={global.contact} />
               </Route>
 
               <Route path="*" exact>

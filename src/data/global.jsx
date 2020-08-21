@@ -82,6 +82,31 @@ export const global = {
     instagram: "https://www.instagram.com/setfoundation/",
     linkedin:
       "https://www.linkedin.com/company/students-in-engineering-and-technology",
-    email: "mailto:contact@setfoundation.ca",
+    email: "mailto:setnational@gmail.com",
+  },
+  contact: {
+    hero: {
+      title: "Contact us",
+      lead:
+        "We always want to hear from you! Contact us and we'll be glad to answer your questions!",
+      social_media: [
+        {
+          platform: "Instagram",
+          label: "@setfoundation",
+          link: "https://www.instagram.com/setfoundation/",
+        },
+        {
+          platform: "LinkedIn",
+          label: "SET",
+          link:
+            "https://www.linkedin.com/company/students-in-engineering-and-technology",
+        },
+        {
+          platform: "Email us",
+          label: "setnational@gmail.com",
+          link: "mailto:setnational@gmail.com",
+        },
+      ],
+    },
   },
 };

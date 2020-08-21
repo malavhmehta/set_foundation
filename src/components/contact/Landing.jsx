@@ -1,14 +1,15 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { HashLink } from "react-router-hash-link";
 import Fade from "react-reveal";
 import { ArrowRight } from "styled-icons/feather";
 
-import HeroImage from "../../assets/images/hero.jpg";
+import ContactImage from "../../assets/images/contact.jpg";
 
 import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
-const LandingWrapper = styled.div`
+const Header = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -25,11 +26,17 @@ const Detail = styled.p`
   text-transform: uppercase;
 `;
 
-const Header = styled.h1`
+const GrayDetail = styled(Detail)`
+  color: ${colors.text};
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+`;
+
+const Title = styled.h1`
   color: ${colors.text};
   font-size: 45px;
-  ${media.md`font-size: ${fontSizes.h1}`};
-  font-weight: 600;
+  ${media.md`font-size: ${fontSizes.h1};`};
+  max-width: 450px;
 `;
 
 const Lead = styled.p`
@@ -42,7 +49,22 @@ const Lead = styled.p`
   text-align: center;
 `;
 
-const Button = styled.a.attrs({
+const PlatformLink = styled(HashLink)`
+  color: ${colors.accent} !important;
+  font-size: ${fontSizes.sm};
+  ${media.md`font-size: ${fontSizes.md}`};
+  font-weight: 500;
+  max-width: 750px;
+  padding: 0 0 2rem;
+  text-align: center;
+  text-decoration: none !important;
+
+  &:hover {
+    color: ${colors.accent_darken} !important;
+  }
+`;
+
+const Button = styled(HashLink).attrs({
   className: "btn",
 })`
   background-color: ${colors.accent};
@@ -121,30 +143,55 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const Line = styled.hr`
+  border-top: 1px solid ${hex2rgba(theme.colors.bg_alt, 0.1)};
+  margin: 4rem 0 4.5rem;
+`;
+
 export const Landing = (props) => (
   <div className="container">
     <div className="row">
       <div className="col-12">
-        <LandingWrapper>
+        <Header>
           <Fade bottom>
-            <Detail>{props.data.expanded}</Detail>
-            <Header>{props.data.title}</Header>
+            <Detail>Students in Engineering and Technology.</Detail>
+            <Title>{props.data.title}</Title>
             <Lead>{props.data.lead}</Lead>
 
-            <Button href="/#initiatives">
-              Learn more <Right />
+            <Button to="/contact#form">
+              Contact us <Right />
             </Button>
           </Fade>
-
           <ImageWrapper>
             <img
-              src={HeroImage}
+              src={ContactImage}
               alt="SET Ottawa Lecture 2018"
               className="img-fluid"
             />
           </ImageWrapper>
-        </LandingWrapper>
+        </Header>
       </div>
     </div>
+    <div className="row mb-4">
+      <div className="col-md-1" />
+      <div className="col-12 col-md-10">
+        <div className="row">
+          {props.data.social_media.map((platform) => (
+            <div
+              className="col-12 col-sm-4 mb-4 d-flex flex-column align-items-center justify-content-center"
+              key={platform.platform}
+            >
+              <Fade bottom>
+                <GrayDetail>{platform.platform}</GrayDetail>
+                <PlatformLink to={platform.link}>{platform.label}</PlatformLink>
+              </Fade>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="col-md-1" />
+    </div>
+
+    <Line />
   </div>
 );
