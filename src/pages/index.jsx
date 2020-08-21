@@ -118,9 +118,14 @@ class App extends Component {
                 <Conference data={conference} />
               </Route>
 
-              <Route path="/hackathon" exact>
-                Hackathon
-              </Route>
+              <Route
+                path="/hackathon"
+                exact
+                component={() => {
+                  window.location.href = "https://sethacks.ca/#/";
+                  return null;
+                }}
+              />
 
               <Route path="/up" exact>
                 <ComingSoon />

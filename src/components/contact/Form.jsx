@@ -1,6 +1,5 @@
 import React, { Component, createRef } from "react";
 import Fade from "react-reveal";
-import Fader from "react-fader";
 import styled from "styled-components";
 
 import { theme, media, hex2rgba } from "../../styles";

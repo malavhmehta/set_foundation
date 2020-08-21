@@ -47,7 +47,7 @@ export const global = {
         ],
       },
       {
-        href: "//sethacks.ca/#/",
+        href: "/hackathon",
         caption: "Hackathon",
         anchors: [
           {
