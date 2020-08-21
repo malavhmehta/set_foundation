@@ -4,6 +4,7 @@ import { Instagram, Linkedin, Mail } from "styled-icons/feather";
 import { withRouter } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Fade from "react-reveal";
+import emailjs from "emailjs-com";
 
 import { hex2rgba, theme, media } from "../../styles";
 
@@ -237,6 +238,7 @@ export class Footer extends Component {
       error: false,
       errorMessage: "",
       route: props.route,
+      loading: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -266,8 +268,32 @@ export class Footer extends Component {
   }
 
   handleSubmit(event) {
-    alert("Email submitted: " + this.state.email);
     event.preventDefault();
+    this.setState({
+      loading: true,
+    });
+
+    emailjs
+      .sendForm(
+        "set_national_gmail",
+        "template_vjd74wMr",
+        event.target,
+        "user_n6VXM67qmVMaCewsRmJT8"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      )
+      .then(() => {
+        this.setState({
+          email: "",
+          loading: false,
+        });
+      });
   }
 
   redirect = (target) => {
@@ -305,6 +331,7 @@ export class Footer extends Component {
                     <EmailInput
                       alt={alt ? 1 : 0}
                       type="text"
+                      name="message_html"
                       value={this.state.email}
                       onChange={this.handleChange}
                       placeholder={"you@email.com"}
@@ -312,7 +339,11 @@ export class Footer extends Component {
                     <SubmitButton
                       type="submit"
                       className="mt-4 mt-sm-0 mt-md-4 mt-lg-0"
-                      disabled={this.state.error || this.state.email === ""}
+                      disabled={
+                        this.state.error ||
+                        this.state.email === "" ||
+                        this.state.loading
+                      }
                     >
                       Subscribe
                     </SubmitButton>

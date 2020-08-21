@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
 import Typical from "react-typical";
 import Fade from "react-reveal";
+import emailjs from "emailjs-com";
 
 import HeroImage from "../../assets/images/conference_hero.jpg";
 
@@ -164,6 +165,7 @@ export class Landing extends Component {
     super(props);
 
     this.state = {
+      loading: false,
       email: "",
       error: false,
       errorMessage: "",
@@ -196,8 +198,32 @@ export class Landing extends Component {
   }
 
   handleSubmit(event) {
-    alert("Email submitted: " + this.state.email);
     event.preventDefault();
+    this.setState({
+      loading: true,
+    });
+
+    emailjs
+      .sendForm(
+        "set_national_gmail",
+        "template_vjd74wMr",
+        event.target,
+        "user_n6VXM67qmVMaCewsRmJT8"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      )
+      .then(() => {
+        this.setState({
+          email: "",
+          loading: false,
+        });
+      });
   }
 
   render() {
@@ -222,6 +248,7 @@ export class Landing extends Component {
                 <form onSubmit={this.handleSubmit} className="form-inline">
                   <EmailInput
                     type="text"
+                    name="message_html"
                     value={this.state.email}
                     onChange={this.handleChange}
                     placeholder={"you@email.com"}
@@ -229,7 +256,11 @@ export class Landing extends Component {
                   <SubmitButton
                     type="submit"
                     className="mt-4 mt-sm-0 mt-lg-4 mt-xl-0"
-                    disabled={this.state.error || this.state.email === ""}
+                    disabled={
+                      this.state.error ||
+                      this.state.email === "" ||
+                      this.state.loading
+                    }
                   >
                     Notify me
                   </SubmitButton>
