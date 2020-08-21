@@ -5,7 +5,7 @@ import Switch from "react-router-transition-switch";
 import Fader from "react-fader";
 
 import { GlobalStyle, theme, media } from "../styles";
-import { global, foundation, conference } from "../data";
+import { global, foundation, conference, hackathon} from "../data";
 
 import { Nav } from "../components/common";
 import { Footer } from "../components/common";
@@ -14,6 +14,7 @@ import { ErrorPage } from "./404";
 import { ComingSoon } from "./ComingSoon";
 import { Home } from "./Home";
 import { Conference } from "./Conference";
+import { Hackathon } from "./Hackathon";
 import { Contact } from "./Contact";
 
 const { colors, fontSizes } = theme;
@@ -118,14 +119,17 @@ class App extends Component {
                 <Conference data={conference} />
               </Route>
 
-              <Route
+              {/* <Route
                 path="/hackathon"
                 exact
                 component={() => {
                   window.location.href = "https://sethacks.ca/#/";
                   return null;
                 }}
-              />
+              /> */}
+              <Route path="/hackathon" exact>
+                <Hackathon data={hackathon}/>
+              </Route>
 
               <Route path="/up" exact>
                 <ComingSoon />
