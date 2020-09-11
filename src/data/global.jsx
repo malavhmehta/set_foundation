@@ -69,6 +69,24 @@ export const global = {
         ],
       },
       {
+        href: "/up",
+        caption: "UP",
+        anchors: [
+          {
+            href: "#about",
+            caption: "About SET.UP",
+          },
+          {
+            href: "#register",
+            caption: "Register",
+          },
+          {
+            href: "#faq",
+            caption: "FAQ",
+          },
+        ],
+      },
+      {
         href: "/contact",
         caption: "Contact",
       },
