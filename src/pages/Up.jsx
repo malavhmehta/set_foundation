@@ -2,6 +2,7 @@ import { About, Landing } from "../components/conference";
 import { Anchor, Countdown } from "../components/common";
 import { hex2rgba, theme } from "../styles";
 
+import { Form } from "../components/up";
 import React from "react";
 import styled from "styled-components";
 
@@ -11,7 +12,7 @@ const Line = styled.hr`
 `;
 
 export const Up = (props) => (
-  <div id="conference">
+  <div id="up">
     <Landing data={props.data.hero} />
     <Line />
 
@@ -22,9 +23,10 @@ export const Up = (props) => (
       location={props.data.countdown.location}
     />
 
-    <Anchor anchor="register" />
-    <div className="container mt-5 mb-5">
+    <div className="container" style={{ marginTop: "7.5rem" }}>
       <Line />
     </div>
+    <Anchor anchor="register" />
+    <Form />
   </div>
 );
