@@ -22,13 +22,7 @@ export const Up = (props) => (
       location={props.data.countdown.location}
     />
 
-    <Anchor anchor="why" />
-    <Why data={props.data.why} />
-
-    <Anchor anchor="schedule" />
-    <ComingSoon title={"Schedule"} />
-
-    <Anchor anchor="past" />
-    <PastConference data={props.data.past} />
+    <Anchor anchor="register" />
+    <Line />
   </div>
 );
