@@ -1,5 +1,5 @@
-import { About, Landing, PastConference, Why } from "../components/conference";
-import { Anchor, ComingSoon, Countdown } from "../components/common";
+import { About, Landing } from "../components/conference";
+import { Anchor, Countdown } from "../components/common";
 import { hex2rgba, theme } from "../styles";
 
 import React from "react";
@@ -23,6 +23,8 @@ export const Up = (props) => (
     />
 
     <Anchor anchor="register" />
-    <Line />
+    <div className="container mt-5 mb-5">
+      <Line />
+    </div>
   </div>
 );

@@ -38,6 +38,6 @@ export const up = {
       caption: "twitch.tv/setottawa",
       href: "https://www.twitch.tv/setottawa",
     },
-    time: "Oct 3, 2020",
+    time: "Oct 3, 2020 10:00 AM",
   },
 };

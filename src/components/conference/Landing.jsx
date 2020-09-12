@@ -5,7 +5,6 @@ import styled, { keyframes } from "styled-components";
 import Fade from "react-reveal";
 import HeroImage from "../../assets/images/conference_hero.jpg";
 import Typical from "react-typical";
-import emailjs from "emailjs-com";
 
 const { colors, fontSizes } = theme;
 

@@ -5,7 +5,6 @@ import styled, { ThemeProvider, css } from "styled-components";
 
 import Fade from "react-reveal";
 import { HashLink } from "react-router-hash-link";
-import emailjs from "emailjs-com";
 import { withRouter } from "react-router-dom";
 
 const { colors, fontSizes } = theme;

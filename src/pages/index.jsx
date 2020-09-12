@@ -4,7 +4,6 @@ import { Route, BrowserRouter as Router, useLocation } from "react-router-dom";
 import { conference, foundation, global, up } from "../data";
 import styled, { keyframes } from "styled-components";
 
-import { ComingSoon } from "./ComingSoon";
 import { Conference } from "./Conference";
 import { Contact } from "./Contact";
 import { ErrorPage } from "./404";
