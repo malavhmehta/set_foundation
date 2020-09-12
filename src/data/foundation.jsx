@@ -1,4 +1,5 @@
-import { Code, HelpCircle, Speaker } from "styled-icons/feather";
+import { Cast, Code, Speaker } from "styled-icons/feather";
+
 import Section1 from "../assets/images/foundation_section_1.jpg";
 import Section2 from "../assets/images/foundation_section_2.jpg";
 
@@ -30,11 +31,11 @@ export const foundation = {
           "SET.Hacks() is a fully-online, people-focused, 24-hour hackathon that brings people together to solve the world's biggest problems.",
       },
       {
-        icon: HelpCircle,
-        title: "SET Up",
+        icon: Cast,
+        title: "SET UP",
         href: "/up",
         description:
-          "A brand new initiative that’s coming soon. Check back later to learn more.",
+          "Our first ever virtual university showcase, SET UP, featuring undergraduates and professors from engineering and technology programs across Canada!",
       },
     ],
   },
