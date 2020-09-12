@@ -2,7 +2,7 @@ export const global = {
   nav: {
     brand: "SET.Foundation",
     action: {
-      href: "https://google.com",
+      href: "https://forms.gle/qNRnKFgquVeGMUx29",
       caption: "Register now",
     },
     links: [
