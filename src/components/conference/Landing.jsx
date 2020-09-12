@@ -1,12 +1,12 @@
 import React, { Component } from "react";
+import { hex2rgba, media, theme } from "../../styles";
 import styled, { keyframes } from "styled-components";
-import Typical from "react-typical";
+
 import Fade from "react-reveal";
+import HeroImage from "../../assets/images/conference_hero.jpg";
+import Typical from "react-typical";
 import emailjs from "emailjs-com";
 
-import HeroImage from "../../assets/images/conference_hero.jpg";
-
-import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
 const StyledBackground = styled.div`
@@ -197,33 +197,28 @@ export class Landing extends Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
     this.setState({
       loading: true,
     });
 
-    emailjs
-      .sendForm(
-        "set_national_gmail",
-        "template_vjd74wMr",
-        event.target,
-        "user_n6VXM67qmVMaCewsRmJT8"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      )
-      .then(() => {
-        this.setState({
-          email: "",
-          loading: false,
-        });
-      });
+    let payload = new FormData();
+    payload.append("entry.1418881111", this.state.email);
+
+    await fetch(
+      "https://docs.google.com/forms/u/1/d/e/1FAIpQLSff7FKNfuCe3uTmgcnjQly2ArxjU1sanVy2BXMlBwLdKvIGtw/formResponse",
+      {
+        body: payload,
+        method: "POST",
+        mode: "no-cors",
+      }
+    );
+
+    this.setState({
+      loading: false,
+      email: "",
+    });
   }
 
   render() {

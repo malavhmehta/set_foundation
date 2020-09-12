@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import styled, { css, ThemeProvider } from "styled-components";
 import { Instagram, Linkedin, Mail } from "styled-icons/feather";
-import { withRouter } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
-import Fade from "react-reveal";
-import emailjs from "emailjs-com";
+import React, { Component } from "react";
+import { hex2rgba, media, theme } from "../../styles";
+import styled, { ThemeProvider, css } from "styled-components";
 
-import { hex2rgba, theme, media } from "../../styles";
+import Fade from "react-reveal";
+import { HashLink } from "react-router-hash-link";
+import emailjs from "emailjs-com";
+import { withRouter } from "react-router-dom";
 
 const { colors, fontSizes } = theme;
 
@@ -267,33 +267,28 @@ export class Footer extends Component {
     });
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     event.preventDefault();
     this.setState({
       loading: true,
     });
 
-    emailjs
-      .sendForm(
-        "set_national_gmail",
-        "template_vjd74wMr",
-        event.target,
-        "user_n6VXM67qmVMaCewsRmJT8"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      )
-      .then(() => {
-        this.setState({
-          email: "",
-          loading: false,
-        });
-      });
+    let payload = new FormData();
+    payload.append("entry.1418881111", this.state.email);
+
+    await fetch(
+      "https://docs.google.com/forms/u/1/d/e/1FAIpQLSff7FKNfuCe3uTmgcnjQly2ArxjU1sanVy2BXMlBwLdKvIGtw/formResponse",
+      {
+        body: payload,
+        method: "POST",
+        mode: "no-cors",
+      }
+    );
+
+    this.setState({
+      loading: false,
+      email: "",
+    });
   }
 
   redirect = (target) => {
@@ -355,20 +350,19 @@ export class Footer extends Component {
               <Notification>
                 <div className="col-12 col-md-6 d-flex align-items-start flex-column justify-content-center">
                   <NotificationHeadline>
-                    Our conference is happening soon. Register today.
+                    SET UP is happening soon. Register today.
                   </NotificationHeadline>
                   <NotificationBody>
-                    The annual SET Conference is happening soon. Learn more{" "}
-                    <InlineLink to="/conference">here</InlineLink>.
+                    The first SET University Panel is happening soon. Learn more{" "}
+                    <InlineLink to="/up">here</InlineLink>.
                   </NotificationBody>
                 </div>
                 <div className="col-12 col-md-6 d-flex align-items-center justify-content-md-end mt-4 mt-md-0">
-                  <SubmitButton
-                    type="button"
-                    onClick={() => this.redirect(this.props.footer.action.href)}
-                  >
-                    {this.props.footer.action.caption}
-                  </SubmitButton>
+                  <form action={this.props.footer.action.href}>
+                    <SubmitButton type="submit">
+                      {this.props.footer.action.caption}
+                    </SubmitButton>
+                  </form>
                 </div>
               </Notification>
               <Hr />

@@ -1,20 +1,22 @@
+import { GlobalStyle, media, theme } from "../styles";
 import React, { Component, useEffect } from "react";
-import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
+import { Route, BrowserRouter as Router, useLocation } from "react-router-dom";
+import { conference, foundation, global, up } from "../data";
 import styled, { keyframes } from "styled-components";
-import Switch from "react-router-transition-switch";
-import Fader from "react-fader";
 
-import { GlobalStyle, theme, media } from "../styles";
-import { global, foundation, conference } from "../data";
-
-import { Nav } from "../components/common";
-import { Footer } from "../components/common";
-
-import { ErrorPage } from "./404";
 import { ComingSoon } from "./ComingSoon";
-import { Home } from "./Home";
 import { Conference } from "./Conference";
 import { Contact } from "./Contact";
+import { ErrorPage } from "./404";
+import Fader from "react-fader";
+import { Footer } from "../components/common";
+import { Home } from "./Home";
+import { Nav } from "../components/common";
+import Switch from "react-router-transition-switch";
+import { Up } from "./Up";
+import config from "react-reveal/globals";
+
+config({ bottom: true, duration: 100 });
 
 const { colors, fontSizes } = theme;
 
@@ -128,12 +130,17 @@ class App extends Component {
               />
 
               <Route path="/up" exact>
-                <ComingSoon />
+                <Up data={up} />
               </Route>
 
-              <Route path="/register" exact>
-                <ComingSoon />
-              </Route>
+              <Route
+                path="/register"
+                exact
+                component={() => {
+                  window.location.href = "https://forms.gle/qNRnKFgquVeGMUx29";
+                  return null;
+                }}
+              />
 
               <Route path="/contact" exact>
                 <Contact data={global.contact} />

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Fade from "react-reveal";
-import { HashLink } from "react-router-hash-link";
-import Fader from "react-fader";
 import { ArrowRight, ChevronLeft, ChevronRight } from "styled-icons/feather";
+import React, { useState } from "react";
+import { hex2rgba, media, theme } from "../../styles";
 
-import { theme, media, hex2rgba } from "../../styles";
+import Fade from "react-reveal";
+import Fader from "react-fader";
+import { HashLink } from "react-router-hash-link";
+import styled from "styled-components";
+
 const { colors, fontSizes } = theme;
 
 const Title = styled.h2`
@@ -141,7 +142,7 @@ export const About = (props) => {
     <div className="container">
       <div className="row">
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items start mt-5 mt-md-0">
-          <Fade bottom left>
+          <Fade bottom>
             <Title>{props.data.title}</Title>
             <Content>{props.data.content}</Content>
             <StyledLink to={props.data.link.href}>
@@ -153,7 +154,7 @@ export const About = (props) => {
           </Fade>
         </div>
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center my-5">
-          <Fade bottom right>
+          <Fade bottom>
             <Fader>
               <Card>
                 <Icon>{renderIcon(props.data.cards[pos].icon)}</Icon>

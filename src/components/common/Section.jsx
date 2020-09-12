@@ -1,10 +1,11 @@
+import { hex2rgba, media, theme } from "../../styles";
+
+import { ArrowRight } from "styled-icons/feather";
+import Fade from "react-reveal";
+import { HashLink } from "react-router-hash-link";
 import React from "react";
 import styled from "styled-components";
-import { ArrowRight } from "styled-icons/feather";
-import { HashLink } from "react-router-hash-link";
-import Fade from "react-reveal";
 
-import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
 const Title = styled.h2`
@@ -83,7 +84,7 @@ const StyledImage = styled.img.attrs({
 
 const Image = (props) => (
   <ImageWrapper ltr={props.ltr} top={props.top}>
-    <Fade bottom right={!props.top} left={props.top}>
+    <Fade bottom>
       <StyledImage
         src={props.data.src}
         alt={props.data.alt}
@@ -95,7 +96,7 @@ const Image = (props) => (
 
 const Text = (props) => (
   <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items start">
-    <Fade bottom right={!props.ltr} left={props.ltr}>
+    <Fade bottom>
       <Title>{props.data.title}</Title>
       <Content>{props.data.content}</Content>
       {props.data.link && (
