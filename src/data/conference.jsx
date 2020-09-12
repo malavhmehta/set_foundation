@@ -1,32 +1,30 @@
-import Password from "../assets/images/1password.png";
-import Balsamiq from "../assets/images/balsamiq.png";
-import Carleton from "../assets/images/carleton.png";
-import Huawei from "../assets/images/huawei.png";
-import Repl from "../assets/images/repl.png";
-import Rogers from "../assets/images/rogers.png";
-import UOttawa from "../assets/images/uottawa.jpg";
-import Wolfram from "../assets/images/wolfram.png";
-
-import { Users, Briefcase, Clock } from "styled-icons/fa-solid";
+import { Briefcase, Clock, Users } from "styled-icons/fa-solid";
 import { NetworkChart, Trophy } from "styled-icons/boxicons-regular";
-import { User, Tool } from "styled-icons/feather";
+import { Tool, User } from "styled-icons/feather";
 
-import Speaker from "../assets/images/speaker.jpg";
-import Networking from "../assets/images/network.jpg";
-import Workshops from "../assets/images/competition.jpg";
-import Competition from "../assets/images/pitch.jpg";
-
-import Conference2018 from "../assets/images/2018.jpg";
 import Arnaud from "../assets/images/arnaud.jpg";
+import Balsamiq from "../assets/images/balsamiq.png";
 import Benoit from "../assets/images/benoit.jpg";
-import Franck from "../assets/images/franck.jpg";
-import Murat from "../assets/images/murat.png";
-
+import Carleton from "../assets/images/carleton.png";
+import Competition from "../assets/images/pitch.jpg";
+import Conference2018 from "../assets/images/2018.jpg";
 import Conference2019 from "../assets/images/2019.jpg";
 import Derek from "../assets/images/derek.jpg";
+import Fidus from "../assets/images/fidus.png";
+import Franck from "../assets/images/franck.jpg";
+import Huawei from "../assets/images/huawei.png";
 import James from "../assets/images/james.jpg";
 import Marc from "../assets/images/marc.jpg";
+import Murat from "../assets/images/murat.png";
+import Networking from "../assets/images/network.jpg";
+import Password from "../assets/images/1password.png";
+import Repl from "../assets/images/repl.png";
+import Rogers from "../assets/images/rogers.png";
+import Speaker from "../assets/images/speaker.jpg";
 import Timothy from "../assets/images/timothy.jpg";
+import UOttawa from "../assets/images/uottawa.jpg";
+import Wolfram from "../assets/images/wolfram.png";
+import Workshops from "../assets/images/competition.jpg";
 
 export const conference = {
   hero: {
@@ -57,6 +55,11 @@ export const conference = {
       image: Huawei,
       name: "Huawei",
       href: "https://www.huawei.com/ca/",
+    },
+    {
+      image: Fidus,
+      name: "Fidus Systems",
+      href: "https://fidus.com/",
     },
     {
       image: Repl,
