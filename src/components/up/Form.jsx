@@ -131,6 +131,7 @@ export class Form extends Component {
         error: false,
         message: "",
       },
+      question: "",
       referral: {
         value: "Social media",
         error: false,
@@ -146,6 +147,7 @@ export class Form extends Component {
     this.fullName = createRef();
     this.email = createRef();
     this.school = createRef();
+    this.question = createRef();
     this.referral = createRef();
     this.referral_other = createRef();
 
@@ -202,7 +204,7 @@ export class Form extends Component {
 
     if (school.value === "") {
       school.error = true;
-      school.message = "Message can't be empty.";
+      school.message = "School can't be empty.";
     }
 
     if (referral.value === "") {
@@ -227,6 +229,7 @@ export class Form extends Component {
       fullName: fullName,
       email: email,
       school: school,
+      question: this.question.current.value,
       referral: referral,
       referral_other: referral_other,
     });
@@ -242,6 +245,7 @@ export class Form extends Component {
     payload.append("entry.1159490709", this.state.fullName.value);
     payload.append("entry.1808737374", this.state.email.value);
     payload.append("entry.821947865", this.state.school.value);
+    payload.append("entry.1018682899", this.state.question);
     payload.append("entry.761861660", this.state.referral.value);
     payload.append(
       "entry.761861660.other_option_response",
@@ -275,6 +279,7 @@ export class Form extends Component {
         error: false,
         message: "",
       },
+      question: "",
       referral: {
         value: "Social media",
         error: false,
@@ -352,6 +357,23 @@ export class Form extends Component {
                           placeholder="e.g. Colonel By Secondary School"
                         />
                         <Error>{this.state.school.message}</Error>
+                      </div>
+                    </Fade>
+
+                    <Fade bottom>
+                      <div className="col-12 mb-4">
+                        <label>
+                          Please include any questions you may have for our
+                          panelists:
+                        </label>
+                        <Input
+                          name="school"
+                          type="text"
+                          value={this.state.question}
+                          ref={this.question}
+                          onChange={this.handleChange}
+                          placeholder="Your question"
+                        />
                       </div>
                     </Fade>
 
