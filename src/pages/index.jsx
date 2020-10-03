@@ -123,8 +123,16 @@ class App extends Component {
                 path="/hackathon"
                 exact
                 component={() => {
-                  window.location.href = "https://sethacks.ca/#/";
-                  return null;
+                  setTimeout(
+                    () => (window.location.href = "https://sethacks.ca/#/"),
+                    750
+                  );
+
+                  return (
+                    <Loader>
+                      <h1>Redirecting...</h1>
+                    </Loader>
+                  );
                 }}
               />
 
@@ -136,8 +144,17 @@ class App extends Component {
                 path="/register"
                 exact
                 component={() => {
-                  window.location.href = "https://forms.gle/qNRnKFgquVeGMUx29";
-                  return null;
+                  setTimeout(
+                    () =>
+                      (window.location.href =
+                        "https://forms.gle/qNRnKFgquVeGMUx29"),
+                    750
+                  );
+                  return (
+                    <Loader>
+                      <h1>Redirecting...</h1>
+                    </Loader>
+                  );
                 }}
               />
 
@@ -166,11 +183,9 @@ class App extends Component {
       );
     } else {
       return (
-        <React.Fragment>
-          <Loader>
-            <h1>SET.Foundation</h1>
-          </Loader>
-        </React.Fragment>
+        <Loader>
+          <h1>SET.Foundation</h1>
+        </Loader>
       );
     }
   }

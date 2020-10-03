@@ -1,8 +1,8 @@
 import { About, Landing } from "../components/conference";
 import { Anchor, Countdown } from "../components/common";
+import { Form, Schedule } from "../components/up";
 import { hex2rgba, theme } from "../styles";
 
-import { Form } from "../components/up";
 import React from "react";
 import styled from "styled-components";
 
@@ -28,5 +28,11 @@ export const Up = (props) => (
     </div>
     <Anchor anchor="register" />
     <Form />
+
+    <Anchor anchor="schedule" />
+    <div className="container" style={{ marginBottom: "7.5rem" }}>
+      <Line />
+    </div>
+    <Schedule data={props.data.schedule}/>
   </div>
 );

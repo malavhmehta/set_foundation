@@ -40,4 +40,18 @@ export const up = {
     },
     time: "Oct 10, 2020 1:30 PM",
   },
+  schedule: {
+    rows: ["Time", "Speaker", "Topic"],
+    columns: [
+      ["1:30 pm - 1:35 pm", "	Intro to SET UP", "—"],
+      ["1:35 pm - 1:55 pm", "Victor Wang", "Computer Science"],
+      ["1:55 pm - 2:15 pm", "Wanda Song", "Software Engineering	"],
+      ["2:15 pm - 2:35 pm", "Mingde Yin", "Engineering Science	"],
+      ["2:35 pm - 2:55 pm", "Amar Jasarbasic", "Career opportunities in SE"],
+      ["2:55 pm - 3:15 pm", "Ghassan Jabbour", "Research, STEM advances"],
+      ["3:15 pm - 3:35 pm", "Nuha Saharoui", "Computer Engineering"],
+      ["3:35 pm - 3:55 pm", "William Wang", "Dev Degree Program"],
+      ["3:55 pm - 4:00 pm", "Closing Remarks", "—"],
+    ],
+  },
 };

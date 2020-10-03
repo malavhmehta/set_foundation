@@ -80,6 +80,10 @@ export const global = {
             href: "#register",
             caption: "Register",
           },
+          {
+            href: "#schedule",
+            caption: "Schedule"
+          }
         ],
       },
       {
