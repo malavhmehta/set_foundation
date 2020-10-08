@@ -8,7 +8,7 @@ export const foundation = {
     expanded: "Students in Engineering and Technology",
     title: "SET.Foundation",
     lead:
-      "The SET Foundation creates opportunities for students aspiring to achieve within the STEM fields.",
+      "The SET Foundation is a student-led non-profit organization that creates opportunities for students aspiring to achieve within the STEM fields.",
   },
   initiatives: {
     title:
@@ -61,7 +61,8 @@ export const foundation = {
         alt: "Our team (2018)",
       },
       text: {
-        title: "Meet the student team that runs the SET Foundation.",
+        title:
+          "Meet the team of student volunteers that runs the SET Foundation.",
         content:
           "What started as a small team back in 2018 quickly grew into a larger team to support the growing number of initiatives taken by the SET Foundation.",
         link: {
