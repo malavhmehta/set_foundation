@@ -1,6 +1,6 @@
 import { About, Landing } from "../components/conference";
 import { Anchor, Countdown } from "../components/common";
-import { Form, Schedule } from "../components/up";
+import { Form, Schedule, Speakers } from "../components/up";
 import { hex2rgba, theme } from "../styles";
 
 import React from "react";
@@ -23,16 +23,29 @@ export const Up = (props) => (
       location={props.data.countdown.location}
     />
 
-    <div className="container" style={{ marginTop: "7.5rem" }}>
+    <div
+      className="container"
+      style={{ marginTop: "4rem", marginBottom: "6rem" }}
+    >
       <Line />
     </div>
+    <Anchor anchor="speakers" />
+    <Speakers speakers={props.data.speakers} />
+
+    <div
+      className="container"
+      style={{ marginTop: "4rem", marginBottom: "6rem" }}
+    >
+      <Line />
+    </div>
+    <Anchor anchor="schedule" />
+    <Schedule data={props.data.schedule} />
+
+    <div className="container" style={{ marginTop: "6rem" }}>
+      <Line />
+    </div>
+
     <Anchor anchor="register" />
     <Form />
-
-    <Anchor anchor="schedule" />
-    <div className="container" style={{ marginBottom: "7.5rem" }}>
-      <Line />
-    </div>
-    <Schedule data={props.data.schedule}/>
   </div>
 );

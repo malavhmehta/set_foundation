@@ -77,13 +77,17 @@ export const global = {
             caption: "About SET.UP",
           },
           {
-            href: "#register",
-            caption: "Register",
+            href: "#speakers",
+            caption: "Speakers",
           },
           {
             href: "#schedule",
-            caption: "Schedule"
-          }
+            caption: "Schedule",
+          },
+          {
+            href: "#register",
+            caption: "Register",
+          },
         ],
       },
       {

@@ -56,7 +56,7 @@ const Td = styled.td`
 `;
 
 export const Schedule = ({ data }) => (
-  <div className="container pb-5" style={{ marginBottom: "8rem" }}>
+  <div className="container" style={{ marginBottom: "4rem" }}>
     <div className="row">
       <div className="col-12 d-flex flex-column align-items-center justify-content-center">
         <Fade bottom>
