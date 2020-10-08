@@ -117,7 +117,7 @@ export const up = {
       [
         "2:55 - 3:15 pm",
         "Professor William Bishop",
-        "University of Waterloo Faculty of Engineering",
+        "Faculty of Engineering at Waterloo",
       ],
       ["3:15 - 3:35 pm", "William Wang", "Computer Engineering"],
       ["3:35 - 3:55 pm", "Victor Wang", "Computer Science"],

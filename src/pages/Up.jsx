@@ -25,7 +25,7 @@ export const Up = (props) => (
 
     <div
       className="container"
-      style={{ marginTop: "4rem", marginBottom: "6rem" }}
+      style={{ marginTop: "8rem", marginBottom: "6rem" }}
     >
       <Line />
     </div>
