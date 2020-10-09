@@ -256,7 +256,7 @@ export class Landing extends Component {
                       this.state.loading
                     }
                   >
-                    Register Now
+                    Notify me
                   </SubmitButton>
                 </form>
                 <FormLabel>Get notified when the stream is live.</FormLabel>
