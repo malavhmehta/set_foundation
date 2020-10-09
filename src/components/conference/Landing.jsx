@@ -256,10 +256,10 @@ export class Landing extends Component {
                       this.state.loading
                     }
                   >
-                    Notify me
+                    Register Now
                   </SubmitButton>
                 </form>
-                <FormLabel>Get notified when tickets are released.</FormLabel>
+                <FormLabel>Get notified when the stream is live.</FormLabel>
               </Fade>
             </ColMarginTop>
             <div className="col-12 col-lg-7">
