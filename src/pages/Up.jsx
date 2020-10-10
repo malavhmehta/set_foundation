@@ -4,6 +4,7 @@ import { Form, Schedule, Speakers } from "../components/up";
 import { hex2rgba, media, theme } from "../styles";
 import styled, { keyframes } from "styled-components";
 
+import { HashLink } from "react-router-hash-link";
 import React from "react";
 
 const Line = styled.hr`
@@ -44,7 +45,7 @@ const Loader = styled.div`
   }
 `;
 
-const BackButton = styled.button`
+const BackButton = styled(HashLink)`
   background-color: ${colors.accent};
   border: none;
   border-radius: ${theme.borderRadius};
@@ -108,7 +109,7 @@ const StyledLink = styled.a`
 `;
 
 export const Up = (props) => {
-  const [closed, setClosed] = React.useState(false);
+  const [closed, setClosed] = React.useState(true);
 
   return closed ? (
     <div id="up">
@@ -154,9 +155,11 @@ export const Up = (props) => {
         twitch.tv/setottawa
       </StyledLink>
       <ButtonGroup>
-        <BackButton onClick={() => setClosed(true)}>Close</BackButton>
+        <BackButton onClick={() => setClosed(true)} to="/up#schedule">
+          See schedule
+        </BackButton>
         <OpenStream href="https://www.twitch.tv/setottawa">
-          Open Stream
+          Open stream
         </OpenStream>
       </ButtonGroup>
     </Loader>
