@@ -243,7 +243,7 @@ export class Form extends Component {
 
     let payload = new FormData();
     payload.append("entry.1159490709", this.state.fullName.value);
-    payload.append("entry.1808737374", this.state.email.value);
+    payload.append("emailAddress", this.state.email.value);
     payload.append("entry.821947865", this.state.school.value);
     payload.append("entry.1018682899", this.state.question);
     payload.append("entry.761861660", this.state.referral.value);
