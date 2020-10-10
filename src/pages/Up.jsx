@@ -109,7 +109,7 @@ const StyledLink = styled.a`
 `;
 
 export const Up = (props) => {
-  const [closed, setClosed] = React.useState(true);
+  const [closed, setClosed] = React.useState(false);
 
   return closed ? (
     <div id="up">
