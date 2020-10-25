@@ -62,21 +62,21 @@ const BackButton = styled(HashLink)`
   }
 `;
 
-const OpenStream = styled.a`
-  background-color: ${colors.accent};
-  border: none;
-  border-radius: ${theme.borderRadius};
-  color: ${colors.text_alt} !important;
-  font-size: ${fontSizes.sm};
-  font-weight: 600;
-  padding: 0.8rem 1.4rem;
-  transition: ${theme.transition};
+// const OpenStream = styled.a`
+//   background-color: ${colors.accent};
+//   border: none;
+//   border-radius: ${theme.borderRadius};
+//   color: ${colors.text_alt} !important;
+//   font-size: ${fontSizes.sm};
+//   font-weight: 600;
+//   padding: 0.8rem 1.4rem;
+//   transition: ${theme.transition};
 
-  &:hover {
-    background-color: ${colors.accent_darken};
-    text-decoration: none;
-  }
-`;
+//   &:hover {
+//     background-color: ${colors.accent_darken};
+//     text-decoration: none;
+//   }
+// `;
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -150,17 +150,14 @@ export const Up = (props) => {
     </div>
   ) : (
     <Loader>
-      <h1>SET UP is live!</h1>
-      <StyledLink href="https://www.twitch.tv/setottawa">
-        twitch.tv/setottawa
+      <h1>SET UP 2020 is over</h1>
+      <StyledLink href="https://drive.google.com/drive/folders/1vuWErrgeqYstiyN_eWgTNJ95S_duXCtt?usp=sharing">
+        See panelist slides
       </StyledLink>
       <ButtonGroup>
-        <BackButton onClick={() => setClosed(true)} to="/up#schedule">
-          See schedule
+        <BackButton onClick={() => setClosed(true)} to="/up">
+          Close
         </BackButton>
-        <OpenStream href="https://www.twitch.tv/setottawa">
-          Open stream
-        </OpenStream>
       </ButtonGroup>
     </Loader>
   );
