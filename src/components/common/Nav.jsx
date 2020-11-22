@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { HashLink } from "react-router-hash-link";
-import styled from "styled-components";
-import { X } from "styled-icons/feather";
+import { hex2rgba, media, theme } from "../../styles";
 
-import { theme, hex2rgba, media } from "../../styles";
+import { HashLink } from "react-router-hash-link";
+import { X } from "styled-icons/feather";
+import styled from "styled-components";
+
 const { colors, fontSizes } = theme;
 
 const StyledBackground = styled.div.attrs({
@@ -46,6 +47,8 @@ const MobileNav = styled.nav`
   transform: scale(${(props) => (props.active ? 1 : 0)});
   transform-origin: top right;
   transition: all 0.2s ease-in-out;
+  overflow-y: auto;
+  height: 90vh;
   top: 1.8rem;
 `;
 

@@ -203,10 +203,10 @@ export class Landing extends Component {
     });
 
     let payload = new FormData();
-    payload.append("entry.1418881111", this.state.email);
+    payload.append("emailAddress", this.state.email);
 
     await fetch(
-      "https://docs.google.com/forms/u/1/d/e/1FAIpQLSff7FKNfuCe3uTmgcnjQly2ArxjU1sanVy2BXMlBwLdKvIGtw/formResponse",
+      "https://docs.google.com/forms/u/2/d/e/1FAIpQLSdbOFUVUQ1_1xu0azSIdKtstE4aeVWosbzHdtv0GpfA91jxhw/formResponse",
       {
         body: payload,
         method: "POST",
@@ -256,10 +256,10 @@ export class Landing extends Component {
                       this.state.loading
                     }
                   >
-                    Notify me
+                    Sign up
                   </SubmitButton>
                 </form>
-                <FormLabel>Get notified when the stream is live.</FormLabel>
+                <FormLabel>Sign up for our newsletter.</FormLabel>
               </Fade>
             </ColMarginTop>
             <div className="col-12 col-lg-7">

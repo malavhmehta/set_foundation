@@ -17,6 +17,7 @@
 
 export { conference } from "./conference";
 export { up } from "./up";
+export { newsletter } from "./newsletter";
 export { global } from "./global";
 export { foundation } from "./foundation";
 export { hackathon } from "./hackathon";

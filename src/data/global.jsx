@@ -2,8 +2,8 @@ export const global = {
   nav: {
     brand: "SET.Foundation",
     action: {
-      href: "https://forms.gle/qNRnKFgquVeGMUx29",
-      caption: "Register now",
+      href: "https://forms.gle/P5rHgRrjkZLVhuCS9",
+      caption: "Sign Up",
     },
     links: [
       {
@@ -89,6 +89,10 @@ export const global = {
             caption: "Register",
           },
         ],
+      },
+      {
+        href: "/newsletter",
+        caption: "Newsletter",
       },
       {
         href: "/contact",

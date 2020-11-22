@@ -273,10 +273,10 @@ export class Footer extends Component {
     });
 
     let payload = new FormData();
-    payload.append("entry.1418881111", this.state.email);
+    payload.append("emailAddress", this.state.email);
 
     await fetch(
-      "https://docs.google.com/forms/u/1/d/e/1FAIpQLSff7FKNfuCe3uTmgcnjQly2ArxjU1sanVy2BXMlBwLdKvIGtw/formResponse",
+      "https://docs.google.com/forms/u/2/d/e/1FAIpQLSdbOFUVUQ1_1xu0azSIdKtstE4aeVWosbzHdtv0GpfA91jxhw/formResponse",
       {
         body: payload,
         method: "POST",
@@ -349,10 +349,10 @@ export class Footer extends Component {
               <Notification>
                 <div className="col-12 col-md-6 d-flex align-items-start flex-column justify-content-center">
                   <NotificationHeadline>
-                    SET UP is happening soon. Register today.
+                    We just started a newsletter. Sign up today.
                   </NotificationHeadline>
                   <NotificationBody>
-                    The first SET University Panel is happening soon. Learn more{" "}
+                    SET has just started its brand new newsletter. Learn more{" "}
                     <InlineLink to="/up">here</InlineLink>.
                   </NotificationBody>
                 </div>
