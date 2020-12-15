@@ -121,7 +121,7 @@ export const foundation = {
       },
     },
     {
-      label: "The conference team",
+      label: "The SET Ottawa Team",
       team: {
         2020: [
           {
