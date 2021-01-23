@@ -14,7 +14,7 @@ export const foundation = {
     title:
       "Our vision is to enhance the quality of high school STEM education.",
     description:
-      "The SET Foundation is an organization geared towards the enrichment and education of students aspiring to achieve within the STEM fields. We are carrying out this mission through our various initiatives:",
+      "The SET Foundation is a student-led non-profit organization that creates opportunities for students preparing to be future leaders and innovators in STEM. We are carrying out this mission through our various initiatives:",
     list: [
       {
         icon: Speaker,
@@ -125,7 +125,7 @@ export const foundation = {
       team: {
         2020: [
           {
-            role: "Co-president",
+            role: "Founder & Co-president",
             name: "Albert Nitu",
             image: "https://i.ibb.co/4sR1M2N/albert.png",
           },
