@@ -12,6 +12,7 @@ import { Footer } from "../components/common";
 import { Home } from "./Home";
 import { Nav } from "../components/common";
 import { Newsletter } from "./Newsletter";
+import { Spark } from "./Spark";
 import Switch from "react-router-transition-switch";
 import { Up } from "./Up";
 import config from "react-reveal/globals";
@@ -139,6 +140,10 @@ class App extends Component {
 
               <Route path="/up" exact>
                 <Up data={up} />
+              </Route>
+
+              <Route path="/spark" exact>
+                <Spark />
               </Route>
 
               <Route path="/newsletter" exact>

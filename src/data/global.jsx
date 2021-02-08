@@ -91,6 +91,10 @@ export const global = {
         ],
       },
       {
+        href: "/spark",
+        caption: "SPARK",
+      },
+      {
         href: "/newsletter",
         caption: "Newsletter",
       },
