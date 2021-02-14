@@ -1,7 +1,7 @@
 import { hex2rgba, theme } from "../styles";
 
 import { Anchor } from "../components/common";
-import { Form } from "../components/newsletter";
+import { Form } from "../components/spark";
 import { Landing } from "../components/conference";
 import React from "react";
 import styled from "styled-components";
