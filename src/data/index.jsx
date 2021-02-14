@@ -21,3 +21,4 @@ export { newsletter } from "./newsletter";
 export { global } from "./global";
 export { foundation } from "./foundation";
 export { hackathon } from "./hackathon";
+export { spark } from "./spark";

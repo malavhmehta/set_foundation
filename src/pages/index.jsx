@@ -1,7 +1,7 @@
 import { GlobalStyle, media, theme } from "../styles";
 import React, { Component, useEffect } from "react";
 import { Route, BrowserRouter as Router, useLocation } from "react-router-dom";
-import { conference, foundation, global, newsletter, up } from "../data";
+import { conference, foundation, global, newsletter, spark, up } from "../data";
 import styled, { keyframes } from "styled-components";
 
 import { Conference } from "./Conference";
@@ -143,7 +143,7 @@ class App extends Component {
               </Route>
 
               <Route path="/spark" exact>
-                <Spark />
+                <Spark data={spark} />
               </Route>
 
               <Route path="/newsletter" exact>
