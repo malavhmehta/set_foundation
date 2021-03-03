@@ -80,7 +80,7 @@ export const foundation = {
           {
             role: "President",
             name: "Nathan Biniam",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/LSYBYH8/nathan.png",
           },
           {
             role: "Marketing Director",
@@ -105,12 +105,12 @@ export const foundation = {
           {
             role: "Board Member",
             name: "Terry Ju",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/6nZ0yt0/terry.jpg",
           },
           {
             role: "Board Member",
             name: "Dhruv Rawat",
-            image: "https://i.ibb.co/cvrHHvq/img.png",
+            image: "https://i.ibb.co/D9ZWT37/dhruv.jpg",
           },
           {
             role: "Corporate Relations",

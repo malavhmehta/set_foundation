@@ -1,8 +1,9 @@
+import { hex2rgba, media, theme } from "../../styles";
+
+import Fade from "react-reveal";
 import React from "react";
 import styled from "styled-components";
-import Fade from "react-reveal";
 
-import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
 const Title = styled.h2`
@@ -87,7 +88,7 @@ const Icon = styled.div`
 
 const Text = styled.p`
   color: ${hex2rgba(colors.text, 0.6)};
-  font-size: ${fontSizes.sm};
+  font-size: ${fontSizes.md};
   font-weight: 500;
   margin: 0;
 

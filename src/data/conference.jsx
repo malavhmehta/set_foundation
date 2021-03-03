@@ -18,6 +18,7 @@ import Marc from "../assets/images/marc.jpg";
 import Murat from "../assets/images/murat.png";
 import Networking from "../assets/images/network.jpg";
 import Password from "../assets/images/1password.png";
+import React from "react";
 import Repl from "../assets/images/repl.png";
 import Rogers from "../assets/images/rogers.png";
 import Speaker from "../assets/images/speaker.jpg";
@@ -33,7 +34,7 @@ export const conference = {
       extensions: ["engineers.", 1600, "innovators.", 1600],
     },
     lead:
-      "Join like-minded high school students interested in pursuing a career in engineering and technology at SET 2020.",
+      "Join like-minded high school students interested in pursuing a career in engineering and technology at SET Conference.",
   },
   sponsors: [
     {
@@ -83,7 +84,7 @@ export const conference = {
     },
   ],
   about: {
-    title: "What is the SET tech conference all about?",
+    title: "What will I do at SET?",
     content:
       "Students will have the opportunity to glimpse into engineering, through engaging in networking and experiencing hands-on workshops and activities.",
     link: {
@@ -149,6 +150,23 @@ export const conference = {
       "Last year, we hosted our second annual SET conference on November 9, 2019 at the uOttawa SITE building. Thank you to all the speakers, sponsors, and students who made it possible, and we hope to see you again this fall!",
     conferences: {
       2019: {
+        title: "2nd Annual Conference",
+        desc: (
+          <>
+            A huge thank you to everyone who attended SET 2019! This event
+            wouldn't have been possible without the support of our speakers,
+            networkers, volunteers, sponsors and of course, the students! We
+            were happy to see so much enthusiasm for engineering from both
+            adults and students alike.
+            <br />
+            <br />
+            We started off the day with a keynote speech from Derek Glennie, who
+            gave us inspirational insight about practical tips and challenges
+            faced by engineers. The next couple of hours passed by in a blur of
+            workshops, pizza and networking; we're confident that every single
+            person learned something new that morning.
+          </>
+        ),
         competition:
           "We put your skills to the test in a sustainable, cost-effective house-design competition. In less than 3 hours, each team produced a prototype model and a sales pitch for their house. We were all extremely impressed by what you guys made and we're very excited to see what you'll accomplish as future engineers!",
         image: Conference2019,
@@ -186,6 +204,15 @@ export const conference = {
         ],
       },
       2018: {
+        title: "The Inaugural Conference",
+        desc: (
+          <>
+            Last year, we hosted the first-ever SET conference on October 20,
+            2018 at the uOttawa SITE building. Thank you to all the speakers,
+            sponsors, and students who made it possible, and we hope to see you
+            again this fall!
+          </>
+        ),
         competition:
           "We put your skills to the test in the design and build of a model car. In less than 3 hours, each team produced a prototype model for their car. We were all extremely impressed by what you guys made and we're very excited to see what you'll accomplish as future engineers!",
         image: Conference2018,
@@ -223,5 +250,21 @@ export const conference = {
         ],
       },
     },
+  },
+  schedule: {
+    rows: ["Event", "Duration"],
+    columns: [
+      ["Arrival", "8:00 to 8:30"],
+      ["Kick-off and Opening Remarks", "8:30 to 9:00"],
+      ["Keynote", "9:00 to 10:00"],
+      ["Concurrent Workshops", "10:00 to 11:15"],
+      ["Lunch", "11:15 to 12:00"],
+      ["Networking with Professionals", "12:00 to 1:00"],
+      ["Competition Announcement", "1:00 to 1:30"],
+      ["Ideation and Prototype Building", "1:30 to 4:00"],
+      ["Pitch Competition", "4:00 to 5:00"],
+      ["Snack Break and Judge Deliberation", "5:00 to 5:30"],
+      ["Awards Ceremony", "5:30 to 6:00"],
+    ],
   },
 };

@@ -265,7 +265,7 @@ export class Landing extends Component {
             <div className="col-12 col-lg-7">
               <ImageWrapper>
                 <img
-                  src={HeroImage}
+                  src={this.props.image ? this.props.image : HeroImage}
                   alt="SET Ottawa Competition 2018"
                   className="img-fluid"
                 />

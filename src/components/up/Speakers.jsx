@@ -1,10 +1,10 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from "styled-icons/feather";
+import React, { useEffect } from "react";
 import { hex2rgba, media, theme } from "../../styles";
 
 import Fade from "react-reveal/Fade";
 import Fader from "react-fader";
 import { HashLink } from "react-router-hash-link";
-import React from "react";
 import styled from "styled-components";
 
 const { colors, fontSizes } = theme;
@@ -168,6 +168,13 @@ export const Speakers = ({ speakers }) => {
   const next = () => {
     setCur((cur + 1) % n);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 10000);
+    return () => clearInterval(interval);
+  });
 
   return (
     <StyledSection>

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Fade from "react-reveal";
-import { MapPin, Calendar } from "styled-icons/feather";
+import { Calendar, MapPin } from "styled-icons/feather";
+import React, { useEffect, useState } from "react";
+import { hex2rgba, media, theme } from "../../styles";
 
-import { theme, hex2rgba, media } from "../../styles";
+import Fade from "react-reveal";
+import styled from "styled-components";
+
 const { colors, fontSizes } = theme;
 
 const Wrapper = styled.div.attrs({
@@ -189,7 +190,10 @@ export const Countdown = (props) => {
                 <Icon>
                   <Calendar />
                 </Icon>
-                {props.target || "TBD"}
+                {props.target ||
+                  (props.delayedMessage
+                    ? "TBD (delayed due to COVID-19)"
+                    : "TBD")}
               </Day>
             </Info>
           </Fade>

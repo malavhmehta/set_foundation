@@ -4,6 +4,7 @@ import { Anchor } from "../components/common";
 import { Form } from "../components/spark";
 import { Landing } from "../components/conference";
 import React from "react";
+import SparkLandingImage from "../assets/images/spark_landing.jpg";
 import styled from "styled-components";
 
 const Line = styled.hr`
@@ -14,7 +15,7 @@ const Line = styled.hr`
 export const Spark = (props) => {
   return (
     <div id="up">
-      <Landing data={props.data.hero} />
+      <Landing data={props.data.hero} image={SparkLandingImage} />
       <Line />
 
       <div className="mt-5" />

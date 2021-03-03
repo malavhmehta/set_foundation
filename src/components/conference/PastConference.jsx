@@ -1,11 +1,11 @@
-import React, { useState, useRef } from "react";
-import styled from "styled-components";
-import Fader from "react-fader";
+import React, { useRef, useState } from "react";
+import { hex2rgba, media, theme } from "../../styles";
+
 import Fade from "react-reveal";
-
+import Fader from "react-fader";
 import { Triangle } from "../common";
+import styled from "styled-components";
 
-import { theme, media, hex2rgba } from "../../styles";
 const { colors, fontSizes } = theme;
 
 const StyledBackground = styled.div`
@@ -175,7 +175,9 @@ export const PastConference = (props) => {
           <div className="row">
             <div className="col-12 col-md-6 d-flex align-items-center">
               <Fade bottom>
-                <Title>{props.data.title}</Title>
+                <Title>
+                  {"Past Conferences: " + props.data.conferences[cur].title}
+                </Title>
               </Fade>
             </div>
             <div className="col-12 col-md-6 d-md-flex justify-content-md-end">
@@ -201,7 +203,7 @@ export const PastConference = (props) => {
           <div className="row">
             <div className="col-12">
               <Fade bottom>
-                <Description>{props.data.description}</Description>
+                <Description>{props.data.conferences[cur].desc}</Description>
               </Fade>
             </div>
           </div>

@@ -126,7 +126,7 @@ class App extends Component {
                 exact
                 component={() => {
                   setTimeout(
-                    () => (window.location.href = "https://sethacks.ca/#/"),
+                    () => window.location.replace("https://sethacks.ca/#/"),
                     750
                   );
 
@@ -156,8 +156,9 @@ class App extends Component {
                 component={() => {
                   setTimeout(
                     () =>
-                      (window.location.href =
-                        "https://forms.gle/p3HEW545jGUp7Zqa6"),
+                      window.location.replace(
+                        "https://forms.gle/p3HEW545jGUp7Zqa6"
+                      ),
                     750
                   );
                   return (

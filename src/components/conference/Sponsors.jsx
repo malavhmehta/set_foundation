@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import { hex2rgba, media, theme } from "../../styles";
+
 import Fade from "react-reveal";
 import Flickity from "react-flickity-component";
-
-import { theme, hex2rgba, media } from "../../styles";
+import React from "react";
+import styled from "styled-components";
 
 const SponsorImage = styled.img.attrs({
   className: "img",
@@ -53,7 +53,14 @@ export const Sponsors = (props) => (
       <div className="row">
         <div className="col-12">
           <Fade bottom>
-            <StyledFlickity options={{ initialIndex: props.data.length / 2 }}>
+            <StyledFlickity
+              options={{
+                freeScroll: true,
+                imagesLoaded: true,
+                initialIndex: props.data.length / 2,
+                autoPlay: 1000,
+              }}
+            >
               {props.data.map((sponsor, key) => (
                 <a href={sponsor.href} key={sponsor.name}>
                   <SponsorImage src={sponsor.image} alt={sponsor.name} />

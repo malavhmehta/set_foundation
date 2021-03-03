@@ -1,5 +1,5 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from "styled-icons/feather";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { hex2rgba, media, theme } from "../../styles";
 
 import Fade from "react-reveal";
@@ -137,6 +137,12 @@ const renderIcon = (SomeIcon) => <SomeIcon size={"22"} />;
 export const About = (props) => {
   const [pos, setPos] = useState(0);
   const max = props.data.cards.length - 1;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPos(pos === max ? 0 : pos + 1);
+    }, 4500);
+    return () => clearInterval(interval);
+  });
 
   return (
     <div className="container">
