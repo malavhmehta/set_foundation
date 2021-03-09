@@ -27,6 +27,8 @@ const StyledFlickity = styled(Flickity)`
   margin: 1.5rem 0;
   overflow-x: auto;
   ${media.md`margin: 2rem 0;`};
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &:hover,
   &:active,
@@ -37,6 +39,10 @@ const StyledFlickity = styled(Flickity)`
 
   ol,
   button {
+    display: none;
+  }
+
+  &::-webkit-scrollbar {
     display: none;
   }
 `;

@@ -1,12 +1,21 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { hex2rgba, media, theme } from "../../styles";
 
+import Carousel from "react-bootstrap/carousel";
 import Fade from "react-reveal";
-import Fader from "react-fader";
 import { Triangle } from "../common";
 import styled from "styled-components";
 
 const { colors, fontSizes } = theme;
+
+const Line = styled.div`
+  height: 3px;
+  width: 45px;
+  background-color: ${colors.bg};
+  margin-top: 0.3rem;
+  opacity: 0.4;
+  border-radius: 1.5px;
+`;
 
 const StyledBackground = styled.div`
   background-color: ${colors.bg_alt};
@@ -19,6 +28,34 @@ const Title = styled.h2`
   ${media.md`font-size: ${fontSizes.xl}`};
   font-weight: 500;
   margin: 0 0 2rem;
+`;
+
+const Radio = styled.input`
+  &:after {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(111, 107, 133);
+    content: "";
+    display: inline-block;
+    visibility: visible;
+  }
+
+  &:checked:after {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(229, 227, 233);
+    content: "";
+    display: inline-block;
+    visibility: visible;
+  }
 `;
 
 const Description = styled.p`
@@ -47,30 +84,12 @@ const Text = styled.p`
   opacity: 0.6;
 `;
 
-const Select = styled.select`
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: ${hex2rgba(colors.bg, 0.075)};
-  border: 0;
-  border-radius: ${theme.borderRadius};
-  color: ${hex2rgba(colors.text_alt, 0.6)};
-  cursor: pointer;
+const RadioText = styled.span`
+  color: ${colors.text_alt};
   font-size: ${fontSizes.sm};
-  font-weight: 600;
-  margin: 0 0 2rem;
-  padding: 0.75rem 1rem;
-  transition: ${theme.transition};
-
-  &:hover {
-    background-color: ${hex2rgba(colors.bg, 0.125)};
-  }
-
-  &:active,
-  &:focus {
-    box-shadow: none;
-    outline: none;
-  }
+  font-weight: 500;
+  opacity: 0.6;
+  margin-top: 0.75rem;
 `;
 
 const ImageWrapper = styled.div`
@@ -165,7 +184,39 @@ export const PastConference = (props) => {
   let [cur, setCur] = useState(
     Object.keys(props.data.conferences).reverse()[0]
   );
-  let yearSelect = useRef();
+  const [index, setIndex] = useState(0);
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+  const onChangeValue = (e) => {
+    setCur(e.target.value);
+  };
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      handleSelect(
+        index === props.data.conferences[cur].imgCount ? 0 : index + 1
+      );
+    }, 2500);
+    return () => clearInterval(interval);
+  });
+
+  let createImages = () => {
+    let start = 1;
+    let end = props.data.conferences[cur].imgCount;
+    let images = [];
+    for (let i = start; i <= end; ++i)
+      images.push(
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={`https://raw.githubusercontent.com/itchono/set-website/master/img/gallery-img/${cur}/${cur}%20(${i}).jpg`}
+            alt={`${i} for ${cur}`}
+            key={`${cur}_${i}`}
+          />
+        </Carousel.Item>
+      );
+    return images;
+  };
 
   return (
     <>
@@ -182,21 +233,23 @@ export const PastConference = (props) => {
             </div>
             <div className="col-12 col-md-6 d-md-flex justify-content-md-end">
               <Fade bottom>
-                <Select
-                  onChange={() => {
-                    setCur(yearSelect.current.value);
-                  }}
-                  value={cur}
-                  ref={yearSelect}
-                >
-                  {Object.keys(props.data.conferences)
-                    .reverse()
-                    .map((year) => (
-                      <option value={year} key={year}>
-                        Year: {year}
-                      </option>
-                    ))}
-                </Select>
+                <div onChange={onChangeValue} className="d-flex center">
+                  {Object.keys(props.data.conferences).map((year, idx) => (
+                    <div key={year} className="d-flex center">
+                      {idx !== 0 && <Line />}
+                      <div className="d-flex flex-column align-items-center justify-content-start">
+                        <Radio
+                          type="radio"
+                          value={year}
+                          name="year"
+                          checked={year === cur}
+                          style={{ margin: 0, padding: 0 }}
+                        />
+                        <RadioText>{year}</RadioText>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </Fade>
             </div>
           </div>
@@ -208,73 +261,78 @@ export const PastConference = (props) => {
             </div>
           </div>
 
-          <Fader>
-            <div className="row">
-              <div className="col-12 col-md-6">
-                <Fade bottom>
-                  <Header>Competition</Header>
-                  <Text>{props.data.conferences[cur].competition}</Text>
-                </Fade>
-              </div>
-              <div className="col-12 col-md-6">
-                <Fade bottom>
-                  <ImageWrapper>
-                    <Image
-                      src={props.data.conferences[cur].image}
-                      alt={`${cur} conference`}
-                    />
-                  </ImageWrapper>
-                </Fade>
-              </div>
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <Fade bottom>
+                <Header>Competition</Header>
+                <Text>{props.data.conferences[cur].competition}</Text>
+              </Fade>
             </div>
+            <div className="col-12 col-md-6">
+              <Fade bottom>
+                <ImageWrapper>
+                  <Image
+                    src={props.data.conferences[cur].image}
+                    alt={`${cur} conference`}
+                  />
+                </ImageWrapper>
+              </Fade>
+            </div>
+          </div>
 
-            <div className="row">
-              <div className="col-12 col-md-6">
-                <Fade bottom>
-                  <Header className="mt-4">Winners</Header>
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Place</th>
-                        <th>Team Name</th>
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <Fade bottom>
+                <Header className="mt-4">Winners</Header>
+                <Table>
+                  <thead>
+                    <tr>
+                      <th>Place</th>
+                      <th>Team Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.data.conferences[cur].winners.map((winner) => (
+                      <tr key={winner.place}>
+                        <td>{winner.place}</td>
+                        <td>{winner.name}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {props.data.conferences[cur].winners.map((winner) => (
-                        <tr key={winner.place}>
-                          <td>{winner.place}</td>
-                          <td>{winner.name}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </Fade>
-              </div>
-              <div className="col-12 col-md-6">
-                <Fade bottom>
-                  <Header className="mt-4">Speakers</Header>
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th />
-                        <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {props.data.conferences[cur].speakers.map((speaker) => (
-                        <tr key={speaker.name}>
-                          <td>
-                            <Avatar src={speaker.avatar} alt={speaker.name} />
-                          </td>
-                          <td>{speaker.name}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </Fade>
-              </div>
+                    ))}
+                  </tbody>
+                </Table>
+              </Fade>
             </div>
-          </Fader>
+            <div className="col-12 col-md-6">
+              <Fade bottom>
+                <Header className="mt-4">Speakers</Header>
+                <Table>
+                  <thead>
+                    <tr>
+                      <th />
+                      <th>Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.data.conferences[cur].speakers.map((speaker) => (
+                      <tr key={speaker.name}>
+                        <td>
+                          <Avatar src={speaker.avatar} alt={speaker.name} />
+                        </td>
+                        <td>{speaker.name}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </Fade>
+            </div>
+          </div>
+
+          <div className="row my-5">
+            <div className="col-12">
+              <Header className="mt-4">Gallery</Header>
+              <Carousel activeIndex={index}>{createImages()}</Carousel>
+            </div>
+          </div>
         </div>
       </StyledBackground>
     </>

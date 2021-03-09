@@ -151,6 +151,7 @@ export const conference = {
     conferences: {
       2019: {
         title: "2nd Annual Conference",
+        imgCount: 102,
         desc: (
           <>
             A huge thank you to everyone who attended SET 2019! This event
@@ -205,6 +206,7 @@ export const conference = {
       },
       2018: {
         title: "The Inaugural Conference",
+        imgCount: 44,
         desc: (
           <>
             Last year, we hosted the first-ever SET conference on October 20,
