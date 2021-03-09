@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { hex2rgba, media, theme } from "../../styles";
 
-import Carousel from "react-bootstrap/carousel";
+import { Carousel } from "react-bootstrap";
 import Fade from "react-reveal";
 import { Triangle } from "../common";
 import styled from "styled-components";
