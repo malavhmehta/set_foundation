@@ -49,7 +49,7 @@ const Lead = styled.p`
   text-align: center;
 `;
 
-const PlatformLink = styled(HashLink)`
+const PlatformLink = styled.a`
   color: ${colors.accent} !important;
   font-size: ${fontSizes.sm};
   ${media.md`font-size: ${fontSizes.md}`};
@@ -183,7 +183,7 @@ export const Landing = (props) => (
             >
               <Fade bottom>
                 <GrayDetail>{platform.platform}</GrayDetail>
-                <PlatformLink to={platform.link}>{platform.label}</PlatformLink>
+                <PlatformLink href={platform.link}>{platform.label}</PlatformLink>
               </Fade>
             </div>
           ))}

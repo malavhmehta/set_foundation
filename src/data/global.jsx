@@ -113,7 +113,7 @@ export const global = {
     instagram: "https://www.instagram.com/setfoundation/",
     linkedin:
       "https://www.linkedin.com/company/students-in-engineering-and-technology",
-    email: "mailto:setnational@gmail.com",
+    email: "mailto:set.national@gmail.com",
   },
   contact: {
     hero: {
@@ -134,8 +134,8 @@ export const global = {
         },
         {
           platform: "Email us",
-          label: "setnational@gmail.com",
-          link: "mailto:setnational@gmail.com",
+          label: "set.national@gmail.com",
+          link: "mailto:set.national@gmail.com",
         },
       ],
     },
