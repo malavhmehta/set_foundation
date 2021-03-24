@@ -1,7 +1,7 @@
 import { hex2rgba, theme } from "../styles";
 
 import { Anchor } from "../components/common";
-import { Form } from "../components/spark";
+import { Form, Embed } from "../components/spark";
 import { Landing } from "../components/conference";
 import React from "react";
 import SparkLandingImage from "../assets/images/spark_landing.jpg";
@@ -17,7 +17,9 @@ export const Spark = (props) => {
     <div id="up">
       <Landing data={props.data.hero} image={SparkLandingImage} />
       <Line />
-
+      <div className="mt-5" />
+      <Anchor anchor="case" />
+      <Embed/>
       <div className="mt-5" />
       <Anchor anchor="register" />
       <Form />
