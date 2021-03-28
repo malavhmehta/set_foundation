@@ -142,9 +142,9 @@ class App extends Component {
                 <Up data={up} />
               </Route>
 
-              <Route path="/spark" exact>
+              {/* <Route path="/spark" exact>
                 <Spark data={spark} />
-              </Route>
+              </Route> */}
 
               <Route path="/newsletter" exact>
                 <Newsletter data={newsletter} />
