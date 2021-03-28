@@ -1,7 +1,7 @@
 import { GlobalStyle, media, theme } from "../styles";
 import React, { Component, useEffect } from "react";
 import { Route, BrowserRouter as Router, useLocation } from "react-router-dom";
-import { conference, foundation, global, newsletter, spark, up } from "../data";
+import { conference, foundation, global, newsletter, up } from "../data";
 import styled, { keyframes } from "styled-components";
 
 import { Conference } from "./Conference";
@@ -12,7 +12,6 @@ import { Footer } from "../components/common";
 import { Home } from "./Home";
 import { Nav } from "../components/common";
 import { Newsletter } from "./Newsletter";
-import { Spark } from "./Spark";
 import Switch from "react-router-transition-switch";
 import { Up } from "./Up";
 import config from "react-reveal/globals";
