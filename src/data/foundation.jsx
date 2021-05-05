@@ -157,7 +157,7 @@ export const foundation = {
           {
             role: "Internal Affairs",
             name: "Matthew Biniam",
-            image: "https://i.ibb.co/d2TSDcZ/matthew.png",
+            image: "https://i.ibb.co/SQh2GgZ/matthew.jpg",
           },
           {
             role: "Marketing Director",
