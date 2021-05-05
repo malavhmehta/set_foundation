@@ -1,7 +1,5 @@
 # SET Foundation
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/df832604-0751-4c71-95d6-7dc5a3a9c4a3/deploy-status)](https://app.netlify.com/sites/setfoundation/deploys)
-
 This repository contains the source code for the SET Foundation's
 website, hosted at [setfoundation.ca](https://setfoundation.ca). The
 SET Foundation is a Canadian, student-led NPO dedicated
