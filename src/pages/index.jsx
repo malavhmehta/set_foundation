@@ -137,6 +137,23 @@ class App extends Component {
                 }}
               />
 
+              <Route
+                path="/media"
+                exact
+                component={() => {
+                  setTimeout(
+                    () => window.location.replace("https://www.youtube.com/channel/UCiSfLGhHQz9RgQVjvHG054g"),
+                    750
+                  );
+
+                  return (
+                    <Loader>
+                      <h1>Redirecting...</h1>
+                    </Loader>
+                  );
+                }}
+              />
+
               <Route path="/up" exact>
                 <Up data={up} />
               </Route>
