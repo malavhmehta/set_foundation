@@ -353,7 +353,7 @@ export class Footer extends Component {
                   </NotificationHeadline>
                   <NotificationBody>
                     SET has just started its brand new newsletter. Learn more{" "}
-                    <InlineLink to="/up">here</InlineLink>.
+                    <InlineLink to="/newsletter">here</InlineLink>.
                   </NotificationBody>
                 </div>
                 <div className="col-12 col-md-6 d-flex align-items-center justify-content-md-end mt-4 mt-md-0">
