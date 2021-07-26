@@ -96,6 +96,10 @@ export const global = {
         caption: "Newsletter",
       },
       {
+        href: "/joinus",
+        caption: "Join Us"
+      },
+      {
         href: "/contact",
         caption: "Contact",
       },
@@ -106,7 +110,7 @@ export const global = {
     expanded: "Students in Engineering and Technology",
   },
   social_media: {
-    instagram: "https://www.instagram.com/setfoundation/",
+    instagram: "https://www.instagram.com/setnational/",
     linkedin:
       "https://www.linkedin.com/company/students-in-engineering-and-technology",
     email: "mailto:set.national@gmail.com",
@@ -120,7 +124,7 @@ export const global = {
         {
           platform: "Instagram",
           label: "@setfoundation",
-          link: "https://www.instagram.com/setfoundation/",
+          link: "https://www.instagram.com/setnational/",
         },
         {
           platform: "LinkedIn",

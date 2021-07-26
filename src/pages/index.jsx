@@ -1,7 +1,7 @@
 import { GlobalStyle, media, theme } from "../styles";
 import React, { Component, useEffect } from "react";
 import { Route, BrowserRouter as Router, useLocation } from "react-router-dom";
-import { conference, foundation, global, newsletter, up } from "../data";
+import { conference, foundation, global, joinUs, newsletter, up } from "../data";
 import styled, { keyframes } from "styled-components";
 
 import { Conference } from "./Conference";
@@ -10,6 +10,7 @@ import { ErrorPage } from "./404";
 import Fader from "react-fader";
 import { Footer } from "../components/common";
 import { Home } from "./Home";
+import {JoinUs} from "./JoinUs";
 import { Nav } from "../components/common";
 import { Newsletter } from "./Newsletter";
 import Switch from "react-router-transition-switch";
@@ -164,6 +165,10 @@ class App extends Component {
 
               <Route path="/newsletter" exact>
                 <Newsletter data={newsletter} />
+              </Route>
+
+              <Route path="/joinus" exact>
+                <JoinUs data={joinUs} />
               </Route>
 
               <Route
