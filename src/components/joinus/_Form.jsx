@@ -344,23 +344,23 @@ export class FormNew extends Component {
     let payload = new FormData();
     payload.append("entry.2006086237", this.state.firstName.value);
     payload.append("entry.1597913982", this.state.lastName.value);
-    payload.append("entry.emailAddress", this.state.email.value);
     payload.append("entry.1325484545", this.state.city.value);
-    payload.append("entry.986155024:", this.state.province.value);
+    payload.append("entry.1270421949", this.state.q1.value);
+    payload.append("entry.2062825755", this.state.q2.value);
+    payload.append("entry.986155024", this.state.province.value);
     payload.append("entry.630043493", this.state.grade.value);
     payload.append(
       "entry.630043493.other_option_response",
       this.state.grade_other.value
     );
-
     for (let i = 0; i < this.state.positions.value.length; ++i) {
-      payload.append("entry.1545013310:", this.state.positions.value[i]);
+      payload.append("entry.1545013310", this.state.positions.value[i]);
     }
+    payload.append("emailAddress", this.state.email.value);
 
-    payload.append("entry.1270421949", this.state.q1.value);
-    payload.append("entry.2062825755", this.state.q2.value);
-
-    console.log(payload);
+    for (let key of payload.entries()) {
+      console.log(key[0], key[1]);
+    }
 
     await fetch(
       "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfb0v1e2D3BHwFANi1daQk5cyksfTlKMvX7TsSaf4BiBQDEXw/formResponse",
