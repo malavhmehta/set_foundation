@@ -3,6 +3,7 @@ import { Landing, Section } from "../components/conference";
 import { hex2rgba, media, theme } from "../styles";
 
 import { Anchor } from "../components/common";
+import { HashLink } from "react-router-hash-link";
 import React from "react";
 import styled from "styled-components";
 
@@ -11,6 +12,26 @@ const { colors, fontSizes } = theme;
 const Line = styled.hr`
   border-top: 1px solid ${hex2rgba(theme.colors.bg_alt, 0.1)};
   margin: 0;
+`;
+
+const LinkButton = styled(HashLink).attrs({
+  className: "btn",
+})`
+  background-color: ${colors.accent};
+  color: ${colors.text_alt} !important;
+  font-size: ${fontSizes.sm};
+  font-weight: bold;
+  padding: 0.75rem 1.2rem;
+
+  &:hover,
+  &:active {
+    background-color: ${colors.accent_darken};
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 const StyledLink = styled.a`
@@ -83,6 +104,9 @@ export const JoinUs = (props) => {
                   hr@setfoundation.ca
                 </StyledLink>
                 !
+                <br />
+                <br />
+                <LinkButton to={"/joinus#apply"}>Apply now</LinkButton>
               </>
             ),
           },
@@ -92,7 +116,8 @@ export const JoinUs = (props) => {
       <About data={props.data.about} />
 
       <div className="mt-5" />
-      <Anchor anchor="form" />
+
+      <Anchor anchor="apply" />
       <FormNew />
     </div>
   );

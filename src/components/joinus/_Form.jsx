@@ -2,6 +2,7 @@ import React, { Component, createRef } from "react";
 import { hex2rgba, media, theme } from "../../styles";
 
 import Fade from "react-reveal";
+import { Modal } from "react-bootstrap";
 import styled from "styled-components";
 
 const { colors, fontSizes } = theme;
@@ -83,6 +84,26 @@ const Input = styled.input.attrs({
   }
 `;
 
+const Button = styled.button.attrs({
+  className: "btn",
+})`
+  background-color: ${colors.soft};
+  color: ${colors.accent} !important;
+  font-size: ${fontSizes.xs};
+  font-weight: bold;
+  padding: 0.65rem 1rem;
+
+  &:hover,
+  &:active {
+    background-color: ${colors.soft};
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+`;
+
 const Select = styled.select`
   border: 1px solid ${hex2rgba(colors.bg_alt, 0.15)} !important;
   box-shadow: none !important;
@@ -144,6 +165,7 @@ export class FormNew extends Component {
     this.state = {
       loading: false,
       isValid: false,
+      show: false,
       firstName: {
         value: "",
         error: false,
@@ -209,6 +231,7 @@ export class FormNew extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePositionChange = this.handlePositionChange.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleChange(e) {
@@ -374,6 +397,7 @@ export class FormNew extends Component {
     this.setState({
       loading: false,
       isValid: false,
+      show: true,
       firstName: {
         value: "",
         error: false,
@@ -427,6 +451,12 @@ export class FormNew extends Component {
     });
   }
 
+  handleClose() {
+    this.setState({
+      show: false,
+    });
+  }
+
   handlePositionChange(e) {
     let positions = this.state.positions;
     positions.error = false;
@@ -452,273 +482,292 @@ export class FormNew extends Component {
 
   render() {
     return (
-      <div className="container pt-5 pb-5">
-        <div className="row">
-          <div className="col-12 d-flex flex-column align-items-center justify-content-center">
-            <Fade bottom>
-              <Heading>SET Conference 2021</Heading>
-              <Content>
-                The application is open to all Canadian students who will be in
-                high school in fall 2021 (Grade 9 - 12). This form closes on
-                August 7, 2021 at 11:59 PM EST (Saturday).
-              </Content>
-            </Fade>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-2" />
-          <div className="col-12 col-md-8">
-            <div className="row">
-              <div className="col-12">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="row">
-                    <Fade bottom>
-                      <div className="col-12 col-md-6 mb-4">
-                        <Label>First name</Label>
-                        <Input
-                          name="firstName"
-                          type="text"
-                          value={this.state.firstName.value}
-                          ref={this.firstName}
-                          onChange={this.handleChange}
-                          placeholder="John"
-                        />
-                        <Error>{this.state.firstName.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 col-md-6 mb-4">
-                        <Label>Last name</Label>
-                        <Input
-                          name="lastName"
-                          type="text"
-                          value={this.state.lastName.value}
-                          ref={this.lastName}
-                          onChange={this.handleChange}
-                          placeholder="Doe"
-                        />
-                        <Error>{this.state.lastName.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>Email</Label>
-                        <Input
-                          name="email"
-                          type="text"
-                          value={this.state.email.value}
-                          ref={this.email}
-                          onChange={this.handleChange}
-                          placeholder="johndoe@gmail.com"
-                        />
-                        <Error>{this.state.email.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>City of residence</Label>
-                        <Input
-                          name="city"
-                          type="text"
-                          value={this.state.city.value}
-                          ref={this.city}
-                          onChange={this.handleChange}
-                          placeholder="Ottawa"
-                        />
-                        <Error>{this.state.city.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>Province/Territory</Label>
-                        <br />
-                        <Select
-                          name="province"
-                          value={this.state.province.value}
-                          ref={this.province}
-                          onChange={this.handleChange}
-                        >
-                          <option value="Ontario">Ontario</option>
-                          <option value="Quebec">Quebec</option>
-                          <option value="Nova Scotia">Nova Scotia</option>
-                          <option value="New Brunswick">New Brunswick</option>
-                          <option value="Manitoba">Manitoba</option>
-                          <option value="British Columbia">
-                            British Columbia
-                          </option>
-                          <option value="Prince Edward Island">
-                            Prince Edward Island
-                          </option>
-                          <option value="Saskatchewan">Saskatchewan</option>
-                          <option value="Alberta">Alberta</option>
-                          <option value="Newfoundland & Labrador">
-                            Newfoundland & Labrador
-                          </option>
-                          <option value="Northwest Territories">
-                            Northwest Territories
-                          </option>
-                          <option value="Yukon">Yukon</option>
-                          <option value="Nunavut">Nunavut</option>
-                        </Select>
-                        <br />
-                        <Error>{this.state.province.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>Grade (2021-2022 school year)</Label>
-                        <br />
-                        <Select
-                          name="grade"
-                          value={this.state.grade.value}
-                          ref={this.grade}
-                          onChange={this.handleChange}
-                        >
-                          <option value="Grade 9">Grade 9</option>
-                          <option value="Grade 10">Grade 10</option>
-                          <option value="Grade 11">Grade 11</option>
-                          <option value="Grade 12">Grade 12</option>
-                          <option value="__other_option__">Other</option>
-                        </Select>
-                        <br />
-                        <Error>{this.state.grade.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>Please specify if you selected other:</Label>
-                        <Input
-                          name="grade_other"
-                          type="text"
-                          value={this.state.grade_other.value}
-                          ref={this.grade_other}
-                          onChange={this.handleChange}
-                          disabled={
-                            !(this.state.grade.value === "__other_option__")
-                          }
-                        />
-                        <Error>{this.state.grade_other.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>Positions (Select all the apply)</Label>
-                        <br />
-                        <input
-                          onChange={this.handlePositionChange}
-                          type="checkbox"
-                          name="positions"
-                          value="Co-President"
-                        />{" "}
-                        Co-President
-                        <br />
-                        <input
-                          onChange={this.handlePositionChange}
-                          type="checkbox"
-                          name="positions"
-                          value="Marketing"
-                        />{" "}
-                        Marketing
-                        <br />
-                        <input
-                          onChange={this.handlePositionChange}
-                          type="checkbox"
-                          name="positions"
-                          value="Logistics & Platform"
-                        />{" "}
-                        Logistics & Platform
-                        <br />
-                        <input
-                          onChange={this.handlePositionChange}
-                          type="checkbox"
-                          name="positions"
-                          value="Corporate Outreach"
-                        />{" "}
-                        Corporate Outreach
-                        <br />
-                        <input
-                          onChange={this.handlePositionChange}
-                          type="checkbox"
-                          name="positions"
-                          value="Industry Outreach"
-                        />{" "}
-                        Industry Outreach
-                        <br />
-                        <input
-                          onChange={this.handlePositionChange}
-                          type="checkbox"
-                          name="positions"
-                          value="Finance"
-                        />{" "}
-                        Finance
-                        <br />
-                        <Error>{this.state.positions.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>
-                          Why are you interested in the SET Conference
-                          organizational team? (250 words maximum){" "}
-                        </Label>
-                        <TextArea
-                          name="q1"
-                          rows="6"
-                          value={this.state.q1.value}
-                          ref={this.q1}
-                          onChange={this.handleChange}
-                          placeholder="Type here..."
-                        />
-                        <Error>{this.state.q1.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 mb-4">
-                        <Label>
-                          What do you think you can bring to our team? Please
-                          include any relevant experience if applicable. (350
-                          words maximum)
-                        </Label>
-                        <TextArea
-                          name="message_html"
-                          rows="6"
-                          value={this.state.q2.value}
-                          ref={this.q2}
-                          onChange={this.handleChange}
-                          placeholder="Your message"
-                        />
-                        <Error>{this.state.q2.message}</Error>
-                      </div>
-                    </Fade>
-
-                    <Fade bottom>
-                      <div className="col-12 d-flex justify-content-center mb-5">
-                        <SubmitButton
-                          type="submit"
-                          disabled={!this.state.isValid || this.state.loading}
-                        >
-                          Apply
-                        </SubmitButton>
-                      </div>
-                    </Fade>
-                  </div>
-                </form>
-              </div>
+      <>
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}
+          animation={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <b>Thank you for applying!</b>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            We will reach out to you with next steps within the following weeks.
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.handleClose}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+        <div className="container pt-5 pb-5">
+          <div className="row">
+            <div className="col-12 d-flex flex-column align-items-center justify-content-center">
+              <Fade bottom>
+                <Heading>SET Conference 2021</Heading>
+                <Content>
+                  The application is open to all Canadian students who will be
+                  in high school in fall 2021 (Grade 9 - 12). This form closes
+                  on August 7, 2021 at 11:59 PM EST (Saturday).
+                </Content>
+              </Fade>
             </div>
           </div>
-          <div className="col-md-2" />
+
+          <div className="row">
+            <div className="col-md-2" />
+            <div className="col-12 col-md-8">
+              <div className="row">
+                <div className="col-12">
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="row">
+                      <Fade bottom>
+                        <div className="col-12 col-md-6 mb-4">
+                          <Label>First name</Label>
+                          <Input
+                            name="firstName"
+                            type="text"
+                            value={this.state.firstName.value}
+                            ref={this.firstName}
+                            onChange={this.handleChange}
+                            placeholder="John"
+                          />
+                          <Error>{this.state.firstName.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 col-md-6 mb-4">
+                          <Label>Last name</Label>
+                          <Input
+                            name="lastName"
+                            type="text"
+                            value={this.state.lastName.value}
+                            ref={this.lastName}
+                            onChange={this.handleChange}
+                            placeholder="Doe"
+                          />
+                          <Error>{this.state.lastName.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>Email</Label>
+                          <Input
+                            name="email"
+                            type="text"
+                            value={this.state.email.value}
+                            ref={this.email}
+                            onChange={this.handleChange}
+                            placeholder="johndoe@gmail.com"
+                          />
+                          <Error>{this.state.email.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>City of residence</Label>
+                          <Input
+                            name="city"
+                            type="text"
+                            value={this.state.city.value}
+                            ref={this.city}
+                            onChange={this.handleChange}
+                            placeholder="Ottawa"
+                          />
+                          <Error>{this.state.city.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>Province/Territory</Label>
+                          <br />
+                          <Select
+                            name="province"
+                            value={this.state.province.value}
+                            ref={this.province}
+                            onChange={this.handleChange}
+                          >
+                            <option value="Ontario">Ontario</option>
+                            <option value="Quebec">Quebec</option>
+                            <option value="Nova Scotia">Nova Scotia</option>
+                            <option value="New Brunswick">New Brunswick</option>
+                            <option value="Manitoba">Manitoba</option>
+                            <option value="British Columbia">
+                              British Columbia
+                            </option>
+                            <option value="Prince Edward Island">
+                              Prince Edward Island
+                            </option>
+                            <option value="Saskatchewan">Saskatchewan</option>
+                            <option value="Alberta">Alberta</option>
+                            <option value="Newfoundland & Labrador">
+                              Newfoundland & Labrador
+                            </option>
+                            <option value="Northwest Territories">
+                              Northwest Territories
+                            </option>
+                            <option value="Yukon">Yukon</option>
+                            <option value="Nunavut">Nunavut</option>
+                          </Select>
+                          <br />
+                          <Error>{this.state.province.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>Grade (2021-2022 school year)</Label>
+                          <br />
+                          <Select
+                            name="grade"
+                            value={this.state.grade.value}
+                            ref={this.grade}
+                            onChange={this.handleChange}
+                          >
+                            <option value="Grade 9">Grade 9</option>
+                            <option value="Grade 10">Grade 10</option>
+                            <option value="Grade 11">Grade 11</option>
+                            <option value="Grade 12">Grade 12</option>
+                            <option value="__other_option__">Other</option>
+                          </Select>
+                          <br />
+                          <Error>{this.state.grade.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>Please specify if you selected other:</Label>
+                          <Input
+                            name="grade_other"
+                            type="text"
+                            value={this.state.grade_other.value}
+                            ref={this.grade_other}
+                            onChange={this.handleChange}
+                            disabled={
+                              !(this.state.grade.value === "__other_option__")
+                            }
+                          />
+                          <Error>{this.state.grade_other.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>Positions (Select all the apply)</Label>
+                          <br />
+                          <input
+                            onChange={this.handlePositionChange}
+                            type="checkbox"
+                            name="positions"
+                            value="Co-President"
+                          />{" "}
+                          Co-President
+                          <br />
+                          <input
+                            onChange={this.handlePositionChange}
+                            type="checkbox"
+                            name="positions"
+                            value="Marketing"
+                          />{" "}
+                          Marketing
+                          <br />
+                          <input
+                            onChange={this.handlePositionChange}
+                            type="checkbox"
+                            name="positions"
+                            value="Logistics & Platform"
+                          />{" "}
+                          Logistics & Platform
+                          <br />
+                          <input
+                            onChange={this.handlePositionChange}
+                            type="checkbox"
+                            name="positions"
+                            value="Corporate Outreach"
+                          />{" "}
+                          Corporate Outreach
+                          <br />
+                          <input
+                            onChange={this.handlePositionChange}
+                            type="checkbox"
+                            name="positions"
+                            value="Industry Outreach"
+                          />{" "}
+                          Industry Outreach
+                          <br />
+                          <input
+                            onChange={this.handlePositionChange}
+                            type="checkbox"
+                            name="positions"
+                            value="Finance"
+                          />{" "}
+                          Finance
+                          <br />
+                          <Error>{this.state.positions.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>
+                            Why are you interested in the SET Conference
+                            organizational team? (250 words maximum){" "}
+                          </Label>
+                          <TextArea
+                            name="q1"
+                            rows="6"
+                            value={this.state.q1.value}
+                            ref={this.q1}
+                            onChange={this.handleChange}
+                            placeholder="Type here..."
+                          />
+                          <Error>{this.state.q1.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 mb-4">
+                          <Label>
+                            What do you think you can bring to our team? Please
+                            include any relevant experience if applicable. (350
+                            words maximum)
+                          </Label>
+                          <TextArea
+                            name="message_html"
+                            rows="6"
+                            value={this.state.q2.value}
+                            ref={this.q2}
+                            onChange={this.handleChange}
+                            placeholder="Your message"
+                          />
+                          <Error>{this.state.q2.message}</Error>
+                        </div>
+                      </Fade>
+
+                      <Fade bottom>
+                        <div className="col-12 d-flex justify-content-center mb-5">
+                          <SubmitButton
+                            type="submit"
+                            disabled={!this.state.isValid || this.state.loading}
+                          >
+                            Apply
+                          </SubmitButton>
+                        </div>
+                      </Fade>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-2" />
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

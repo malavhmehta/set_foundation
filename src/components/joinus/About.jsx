@@ -2,10 +2,31 @@ import { hex2rgba, media, theme } from "../../styles";
 
 import Fade from "react-reveal";
 import Fader from "react-fader";
+import { HashLink } from "react-router-hash-link";
 import React from "react";
 import styled from "styled-components";
 
 const { colors, fontSizes } = theme;
+
+const LinkButton = styled(HashLink).attrs({
+  className: "btn",
+})`
+  background-color: ${colors.accent};
+  color: ${colors.text_alt} !important;
+  font-size: ${fontSizes.xs};
+  font-weight: bold;
+  padding: 0.65rem 1rem;
+
+  &:hover,
+  &:active {
+    background-color: ${colors.accent_darken};
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+`;
 
 const Title = styled.h2`
   color: ${colors.text};
@@ -80,6 +101,11 @@ export const About = (props) => {
                     </div>
                     <div className="col-12 col-md-6">
                       <CardContent>{card.post}</CardContent>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12">
+                      <LinkButton to={"/joinus#apply"}>Apply now</LinkButton>
                     </div>
                   </div>
                 </Card>
