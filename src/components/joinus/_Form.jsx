@@ -508,7 +508,7 @@ export class FormNew extends Component {
                 <Content>
                   The application is open to all Canadian students who will be
                   in high school in fall 2021 (Grade 9 - 12). This form closes
-                  on August 7, 2021 at 11:59 PM EST (Saturday).
+                  on August 27, 2021 at 11:59 PM EST (Saturday).
                 </Content>
               </Fade>
             </div>
