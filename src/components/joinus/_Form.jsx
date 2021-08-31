@@ -507,8 +507,7 @@ export class FormNew extends Component {
                 <Heading>SET Conference 2021</Heading>
                 <Content>
                   The application is open to all Canadian students who will be
-                  in high school in fall 2021 (Grade 9 - 12). This form closes
-                  on August 30, 2021 at 11:59 PM EST (Monday).
+                  in high school in fall 2021 (Grade 9 - 12). Applications will be reviewed on a rolling basis.
                 </Content>
               </Fade>
             </div>
