@@ -123,6 +123,43 @@ export const foundation = {
     {
       label: "The SET Ottawa Team",
       team: {
+        2021: [
+          {
+            role: "Founder & Co-president",
+            name: "Matthew Biniam",
+            image: "https://i.ibb.co/2PBdKD4/matthew.jpg",
+          },
+          {
+            role: "Co-president",
+            name: "Paaras Chaudhary",
+            image: "https://i.ibb.co/MNzX77Z/paaras.jpg",
+          },
+          {
+            role: "Logistics Director",
+            name: "Jolyan Ye",
+            image: "https://i.ibb.co/sVvht36/jolyan.jpg",
+          },
+          {
+            role: "Corporate Relations",
+            name: "Derek Huynh",
+            image: "https://i.ibb.co/TB3QcXv/derek.jpg",
+          },
+          {
+            role: "Graphic Designer",
+            name: "Ananya Rustogi",
+            image: "https://i.ibb.co/J5jkgB6/ananya.jpg"
+          },
+          {
+            role: "Marketing Director",
+            name: "Iris Mo",
+            image: "https://i.ibb.co/cvrHHvq/img.png"
+          },
+          {
+            role: "Financial Director",
+            name: "Vansh Sethi",
+            image: "https://i.ibb.co/P5MvDh1/vansh.png"
+          }
+        ],
         2020: [
           {
             role: "Founder & Co-president",
