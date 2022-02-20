@@ -127,7 +127,7 @@ export const foundation = {
           {
             role: "Founder & Co-president",
             name: "Matthew Biniam",
-            image: "https://i.ibb.co/2PBdKD4/matthew.jpg",
+            image: "https://i.ibb.co/n8HzXpf/matt.png",
           },
           {
             role: "Co-president",
@@ -194,7 +194,7 @@ export const foundation = {
           {
             role: "Internal Affairs",
             name: "Matthew Biniam",
-            image: "https://i.ibb.co/2PBdKD4/matthew.jpg",
+            image: "https://i.ibb.co/n8HzXpf/matt.png",
           },
           {
             role: "Marketing Director",
