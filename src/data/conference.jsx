@@ -113,8 +113,8 @@ export const conference = {
     ],
   },
   countdown: {
-    location: null, // { caption: "TBD", href: "" },
-    time: null, // "Nov 17, 2020",
+    location: { caption: "Virtual (Register here)", href: "https://1kr0v839cql.typeform.com/to/caoO08iX" },
+    time: "Apr 9, 2022", // "Nov 17, 2020",
   },
   why: [
     {
@@ -256,17 +256,13 @@ export const conference = {
   schedule: {
     rows: ["Event", "Duration"],
     columns: [
-      ["Arrival", "8:00 to 8:30"],
-      ["Kick-off and Opening Remarks", "8:30 to 9:00"],
-      ["Keynote", "9:00 to 10:00"],
+      ["Kick-off and Opening Remarks", "9:00 to 9:30"],
+      ["Keynote", "9:30 to 10:00"],
       ["Concurrent Workshops", "10:00 to 11:15"],
-      ["Lunch", "11:15 to 12:00"],
-      ["Networking with Professionals", "12:00 to 1:00"],
-      ["Competition Announcement", "1:00 to 1:30"],
-      ["Ideation and Prototype Building", "1:30 to 4:00"],
-      ["Pitch Competition", "4:00 to 5:00"],
-      ["Snack Break and Judge Deliberation", "5:00 to 5:30"],
-      ["Awards Ceremony", "5:30 to 6:00"],
+      ["Professionals in Engineering Panel", "11:15 to 12:15"],
+      ["Lunch", "12:15 to 12:50"],
+      ["Professionals in Engineering Panel (cont.)", "12:50 to 1:50"],
+      ["Closing Remarks", "1:50 to 2:00"],
     ],
   },
 };
