@@ -140,7 +140,7 @@ export const foundation = {
             image: "https://i.ibb.co/sVvht36/jolyan.jpg",
           },
           {
-            role: "Corporate Relations",
+            role: "Founder & Corporate Relations",
             name: "Derek Huynh",
             image: "https://i.ibb.co/TB3QcXv/derek.jpg",
           },
