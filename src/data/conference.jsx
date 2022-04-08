@@ -256,8 +256,8 @@ export const conference = {
   schedule: {
     rows: ["Event", "Duration"],
     columns: [
-      ["Kick-off and Opening Remarks", "9:00 to 9:30"],
-      ["Keynote", "9:30 to 10:00"],
+      ["Kick-off and Opening Remarks", "9:30 to 10:00"],
+      ["Concurrent Workshops", "10:00 to 11:15"],
       ["Professionals in Engineering Panel", "11:15 to 12:15"],
       ["Lunch", "12:15 to 1:00"],
       ["Professionals in Engineering Panel (cont.)", "1:00 to 2:00"],
